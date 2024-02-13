@@ -1,14 +1,24 @@
 import { Schema, model, models } from "mongoose";
 
 const PatientSchema = new Schema({
-  name: {
+  firstName: {
     type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
   },
   age: {
     type: Number,
+    required: true,
   },
-  birthdate: {
+  dob: {
     type: Date,
+    required: true,
+  },
+  address: {
+    type: String,
   },
   religion: {
     type: String,
@@ -19,32 +29,14 @@ const PatientSchema = new Schema({
   occupation: {
     type: String,
   },
-  address: {
+  maritalStatus: {
     type: String,
   },
-  dateOfAdmission: {
-    type: Date,
-  },
-  roomNumber: {
+  spouseName: {
     type: String,
   },
-  bedNumber: { 
-    type: String,
-  },
-  chiefComplaint: {
-    type: String,
-  },
-  admittingDiagnosis: {
-    type: String,
-  },
-  otherDiagnoses: {
-    type: String,
-  },
-  allergies: {
-    type: String,
-  },
-  reactionToAllergies: {
-    type: String,
+  numberOfChildren: {
+    type: Number,
   },
   emergencyContactName: {
     type: String,
@@ -52,10 +44,7 @@ const PatientSchema = new Schema({
   emergencyContactRelationship: {
     type: String,
   },
-  emergencyContactAddress: {
-    type: String,
-  },
-  emergencyContactPhone: {
+  emergencyContactNumber: {
     type: String,
   },
 });

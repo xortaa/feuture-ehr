@@ -47,7 +47,7 @@ const PatientSchema = new Schema({
   emergencyContactNumber: {
     type: String,
   },
-  allergens: {
+  allergen: {
     type: [Schema.Types.ObjectId],
     ref: "Allergen",
   },
@@ -67,9 +67,9 @@ const PatientSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "Lab",
   },
-  measurements: { 
+  measurement: { 
     type: [Schema.Types.ObjectId],
-    ref: "Measurements" 
+    ref: "Measurement" 
   },
   medication: {
     type: [Schema.Types.ObjectId],
@@ -79,7 +79,7 @@ const PatientSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "SocialHx",
   },
-  vitalSigns: {
+  vitalSign: {
     type: [Schema.Types.ObjectId],
     ref: "VitalSign",
   },

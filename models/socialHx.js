@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-const socialHxSchema = new Schema({
+const SocialHxSchema = new Schema({
   occupation: {
     type: String,
   },
@@ -30,6 +30,6 @@ const socialHxSchema = new Schema({
   },
 });
 
-const socialHx = models.socialHx || model("socialHx", socialHxSchema);
+const SocialHx = models.SocialHx || model("SocialHx", SocialHxSchema);
 
-export default socialHx;
+export default SocialHx;

@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-const socialHxSchema = new Schema({
+const VitalSignSchema = new Schema({
   date: {
     type: Date,
   },
@@ -27,6 +27,6 @@ const socialHxSchema = new Schema({
   },
 });
 
-const socialHx = models.socialHx || model("socialHx", socialHxSchema);
+const VitalSign = models.VitalSign || model("VitalSign", VitalSignSchema);
 
-export default socialHx;
+export default VitalSign;

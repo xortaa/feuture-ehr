@@ -22,7 +22,7 @@ export const POST = async (NextRequest) => {
     const patientId = allergenData.patientId;
     const patient = await Patient.findByIdAndUpdate(
       patientId,
-      { $push: { allergens: newAllergen._id } },
+      { $push: { allergen: newAllergen._id } },
       { new: true }
     );
     return NextResponse.json({ allergen: newAllergen, patient }, { status: 200 });

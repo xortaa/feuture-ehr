@@ -25,10 +25,6 @@ const socialHxSchema = new Schema({
   oxygenSource: {
     type: String,
   },
-  Patient: {
-    type: Schema.Types.ObjectId,
-    ref: "Patient",
-  },
 });
 
 const socialHx = models.socialHx || model("socialHx", socialHxSchema);

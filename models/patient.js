@@ -47,6 +47,42 @@ const PatientSchema = new Schema({
   emergencyContactNumber: {
     type: String,
   },
+  allergens: {
+    type: [Schema.Types.ObjectId],
+    ref: "Allergen",
+  },
+  familyHx: {
+    type: [Schema.Types.ObjectId],
+    ref: "FamilyHx",
+  },
+  hpi: {
+    type: Schema.Types.ObjectId,
+    ref: "HPI",
+  },
+  immunization: {
+    type: [Schema.Types.ObjectId],
+    ref: "Immunization",
+  },
+  lab: {
+    type: [Schema.Types.ObjectId],
+    ref: "Lab",
+  },
+  measurements: { 
+    type: [Schema.Types.ObjectId],
+    ref: "Measurements" 
+  },
+  medication: {
+    type: [Schema.Types.ObjectId],
+    ref: "Medication",
+  },
+  socialHx: {
+    type: Schema.Types.ObjectId,
+    ref: "SocialHx",
+  },
+  vitalSigns: {
+    type: [Schema.Types.ObjectId],
+    ref: "VitalSign",
+  },
 });
 
 const Patient = models.Patient || model("Patient", PatientSchema);

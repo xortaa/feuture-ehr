@@ -19,10 +19,6 @@ const HPISchema = new Schema({
   currentMedications: {
     type: String,
   },
-  patient: {
-    type: Schema.Types.ObjectId,
-    ref: "Patient",
-  },
 });
 
 const HPI = models.HPI || model("HPI", HPISchema);

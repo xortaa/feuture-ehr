@@ -8,14 +8,10 @@ const AllergenSchema = new Schema({
     type: String,
   },
   severity: {
-    type: Number,
+    type: String,
   },
-  Onset: {
+  onset: {
     type: Date,
-  },
-  patient: {
-    type: Schema.Types.ObjectId,
-    ref: "Patient",
   },
 });
 

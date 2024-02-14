@@ -5,7 +5,16 @@ import { NextRequest, NextResponse } from "next/server";
 export const GET = async (NextRequest) => {
   try {
     await connectToDatabase();
-    const patients = await Patient.find({});
+    const patients = await Patient.find({})
+      .populate("allergens")
+      .populate("familyHx")
+      .populate("hpi")
+      .populate("immunization")
+      .populate("lab")
+      .populate("medication")
+      .populate("socialHx")
+      .populate("vitalSigns")
+      .exec();
     return NextResponse.json(patients, { status: 200 });
   } catch (error) {
     console.log(error);
@@ -21,6 +30,6 @@ export const POST = async (NextRequest) => {
     return NextResponse.json(patient, { status: 200 });
   } catch (error) {
     console.log(error);
-    return NextResponse.json("Failed to create faq", { status: 500 });
+    return NextResponse.json("Failed to create patient", { status: 500 });
   }
 };

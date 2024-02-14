@@ -28,10 +28,6 @@ const socialHxSchema = new Schema({
   hobbiesAndInterests: {
     type: String,
   },
-  Patient: {
-    type: Schema.Types.ObjectId,
-    ref: "Patient",
-  },
 });
 
 const socialHx = models.socialHx || model("socialHx", socialHxSchema);

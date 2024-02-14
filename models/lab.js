@@ -14,10 +14,6 @@ const LabSchema = new Schema({
   date: { 
     type: Date, 
   },
-  patient: {
-    type: Schema.Types.ObjectId,
-    ref: "Patient",
-  },
 });
 
 const Lab = models.Lab || model("Lab", LabSchema);

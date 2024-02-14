@@ -25,10 +25,6 @@ const MedicationSchema = new Schema({
   status: {
     type: String,
   },
-  Patient: {
-    type: Schema.Types.ObjectId,
-    ref: "Patient",
-  },
 });
 
 const Medication = models.Medication || model("Medication", MedicationSchema);

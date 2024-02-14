@@ -16,10 +16,6 @@ const FamilyHxSchema = new Schema({
   relatedDiseases: {
     type: String,
   },
-  patient: {
-    type: Schema.Types.ObjectId,
-    ref: "Patient",
-  },
 });
 
 const FamilyHx = models.FamilyHx || model("FamilyHx", FamilyHxSchema);

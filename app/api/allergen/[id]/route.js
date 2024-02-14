@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (NextRequest, params) => {
   const id = params.id;
+  await connectToDatabase();
   try {
-    await connectToDatabase();
     const allergen = await Allergen.findById(id);
     if (!allergen) {
       return NextResponse.json("Allergen not found", { status: 404 });
@@ -19,8 +19,8 @@ export const GET = async (NextRequest, params) => {
 
 export const PATCH = async (NextRequest, { params }) => {
   const id = params.id;
+  await connectToDatabase();
   try {
-    await connectToDatabase();
     const allergenData = await NextRequest.json();
     const updatedAllergen = await Allergen.findByIdAndUpdate(id, allergenData, { new: true });
     if (!updatedAllergen) {

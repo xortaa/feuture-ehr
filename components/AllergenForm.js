@@ -14,8 +14,8 @@ function AllergenForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Allergen</label>
-      <input {...register("allergen")} />
+      <label>Allergen Name</label>
+      <input {...register("allergenName")} />
       <label>Reaction</label>
       <input {...register("reaction")} />
       <label>Severity</label>
@@ -25,7 +25,7 @@ function AllergenForm() {
         <option value="severe">Severe</option>
       </select>
       <label>Onset</label>
-      <input {...register("onset")} type="date"/>
+      <input {...register("onset")} type="date" />
       <input type="submit" />
     </form>
   );

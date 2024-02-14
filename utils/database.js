@@ -19,6 +19,17 @@ const connectToDatabase = async () => {
     });
     isConnected = true;
     console.log("MongoDB is connected");
+
+    require("@/models/allergen");
+    require("@/models/familyHx");
+    require("@/models/hpi");
+    require("@/models/immunization");
+    require("@/models/lab");
+    require("@/models/measurement");
+    require("@/models/medication");
+    require("@/models/patient");
+    require("@/models/socialHx");
+    require("@/models/vitalSign");
   } catch (error) {
     console.log(error);
   }

@@ -1,0 +1,40 @@
+.homePage { 
+  padding: 0 60px;
+  margin-top: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.patientContainer { 
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0px;
+  width: 100%;
+}
+
+/* it looks bland help me style it more */
+#button { 
+  background-color: var(--green);
+  color: white;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  transition: all 0.5s ease; 
+  font-size: 1.1em;
+  font-weight: bold; /* make the text bold */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* add a box-shadow */
+  cursor: pointer; /* change the cursor to a hand when hovering over the button */
+}
+
+#button:hover {
+  background-color: var(--dark-green); /* change the color on hover */
+  transform: scale(1.05); /* slightly increase the size of the button on hover */
+}

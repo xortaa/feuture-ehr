@@ -6,7 +6,16 @@ export const GET = async (NextRequest, { params }) => {
   const id = params.id;
   try {
     await connectToDatabase();
-    const patient = await Patient.findById(id);
+    const patient = await Patient.findById(id)
+      .populate("allergen")
+      .populate("familyHx")
+      .populate("hpi")
+      .populate("immunization")
+      .populate("lab")
+      .populate("medication")
+      .populate("socialHx")
+      .populate("vitalSign")
+      .exec();
     if (!patient) {
       return NextResponse.json("Patient not found", { status: 404 });
     }

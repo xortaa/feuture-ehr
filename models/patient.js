@@ -38,7 +38,10 @@ const PatientSchema = new Schema({
   numberOfChildren: {
     type: Number,
   },
-  emergencyContactName: {
+  emergencyContactFirstName: {
+    type: String,
+  },
+  emergencyContactLastName: {
     type: String,
   },
   emergencyContactRelationship: {

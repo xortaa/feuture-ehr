@@ -6,14 +6,14 @@ export const GET = async (NextRequest) => {
   try {
     await connectToDatabase();
     const patients = await Patient.find({})
-      .populate("allergens")
+      .populate("allergen")
       .populate("familyHx")
       .populate("hpi")
       .populate("immunization")
       .populate("lab")
       .populate("medication")
       .populate("socialHx")
-      .populate("vitalSigns")
+      .populate("vitalSign")
       .exec();
     return NextResponse.json(patients, { status: 200 });
   } catch (error) {

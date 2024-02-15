@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import styles from "@/styles/page.module.css";
 import PatientCard from "@/components/PatientCard";
 import axios from "axios";
+import { Typography, Button } from "@mui/material";
 
 export default function Home() {
   const [records, setRecords] = useState([]);
@@ -20,11 +21,13 @@ export default function Home() {
 
   return (
     <div className={styles.homePage}>
-      <div className={styles.header}>
-        <h1>Patient Records</h1>
-        <button id={styles.button}>+ Add Record</button>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "30px" }}>
+        <Typography variant="h4" component="div">
+          Patients Record
+        </Typography>
+        <Button variant="contained">+ Add New Patient</Button>
       </div>
-      <div className={styles.patientContainer}>
+      <div>
         {loading ? (
           <div>Loading...</div>
         ) : (

@@ -1,9 +1,10 @@
-"use client";
+import AllergenForm from "@/components/AllergenForm"
 
-function PatientProfile({ params }) {
-  // console.log params
-  const { id } = params;
-
-  return <div>Id: {id}</div>;
+function ProfilePage({params}) {
+  return (
+    <div>
+      <AllergenForm id={params.id}/>
+    </div>
+  )
 }
-export default PatientProfile;
+export default ProfilePage

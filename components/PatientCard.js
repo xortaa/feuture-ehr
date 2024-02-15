@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import styles from "@/styles/patientCard.module.css";
+import { Typography, Card, CardContent } from "@mui/material";
 
 function PatientCard({
   id,
@@ -15,18 +16,29 @@ function PatientCard({
   emergencyContactNumber,
 }) {
   return (
-    <Link href={`/profile/${id}`} className={styles.cardLink}>
-      <div className={styles.patientCard}>
-        <h3>
-          {firstName} {lastName}
-        </h3>
-        <p>Age: {age}</p>
-        <p>Occupation: {occupation}</p>
-        <p>Address: {address}</p>
-        <p>
-          Emergency Contact: {emergencyContactFirstName} {emergencyContactLastName}, {emergencyContactNumber}
-        </p>
-      </div>
+    <Link href={`/profile/${id}`}>
+      <Card>
+        <CardContent>
+          <Typography variant="h5" component="div">
+            {firstName} {lastName}
+          </Typography>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Age: {age}
+          </Typography>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Occupation: {occupation}
+          </Typography>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Address: {address}
+          </Typography>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Emergency Contact: {emergencyContactFirstName} {emergencyContactLastName}
+          </Typography>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Emergenc Contact #: {emergencyContactNumber}
+          </Typography>
+        </CardContent>
+      </Card>
     </Link>
   );
 }

@@ -2,42 +2,51 @@
 
 import Link from "next/link";
 import styles from "@/styles/patientCard.module.css";
-import { Typography, Card, CardContent } from "@mui/material";
+import { Card, CardHeader, CardBody, CardFooter, Box, Heading, Text, Stack, StackDivider } from "@chakra-ui/react";
 
 function PatientCard({
   id,
   firstName,
   lastName,
   age,
-  occupation,
+  phoneNumber,
   address,
-  emergencyContactFirstName,
-  emergencyContactLastName,
-  emergencyContactNumber,
 }) {
   return (
     <Link href={`/profile/${id}`}>
       <Card>
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {firstName} {lastName}
-          </Typography>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Age: {age}
-          </Typography>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Occupation: {occupation}
-          </Typography>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Address: {address}
-          </Typography>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Emergency Contact: {emergencyContactFirstName} {emergencyContactLastName}
-          </Typography>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Emergenc Contact #: {emergencyContactNumber}
-          </Typography>
-        </CardContent>
+        <CardHeader>
+          <Heading size="md">{firstName} {lastName}</Heading>
+        </CardHeader>
+
+        <CardBody>
+          <Stack divider={<StackDivider />} spacing="4">
+            <Box>
+              <Heading size="xs" textTransform="uppercase">
+                Age
+              </Heading>
+              <Text pt="2" fontSize="sm">
+                {age}
+              </Text>
+            </Box>
+            <Box>
+              <Heading size="xs" textTransform="uppercase">
+                Address
+              </Heading>
+              <Text pt="2" fontSize="sm">
+                {address}
+              </Text>
+            </Box>
+            <Box>
+              <Heading size="xs" textTransform="uppercase">
+                Phone Number
+              </Heading>
+              <Text pt="2" fontSize="sm">
+                {phoneNumber}
+              </Text>
+            </Box>
+          </Stack>
+        </CardBody>
       </Card>
     </Link>
   );

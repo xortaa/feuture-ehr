@@ -10,7 +10,7 @@ const PatientSchema = new Schema({
     required: true,
   },
   age: {
-    type: Number,
+    type: String,
     required: true,
   },
   dob: {
@@ -26,6 +26,9 @@ const PatientSchema = new Schema({
   ethnicity: {
     type: String,
   },
+  phoneNumber: { 
+    type: String,
+  },
   occupation: {
     type: String,
   },
@@ -36,7 +39,7 @@ const PatientSchema = new Schema({
     type: String,
   },
   numberOfChildren: {
-    type: Number,
+    type: String,
   },
   emergencyContactFirstName: {
     type: String,

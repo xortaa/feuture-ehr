@@ -2,13 +2,13 @@ import { Schema, model, models } from "mongoose";
 
 const MeasurementSchema = new Schema({
   height: {
-    type: Number,
+    type: String,
   },
   weight: {
-    type: Number,
+    type: String,
   },
   bmi: {
-    type: Number,
+    type: String,
   },
   date: {
     type: Date,

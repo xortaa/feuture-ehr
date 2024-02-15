@@ -5,10 +5,10 @@ const VitalSignSchema = new Schema({
     type: Date,
   },
   temp: {
-    type: Number,
+    type: String,
   },
   pulse: {
-    type: Number,
+    type: String,
   },
   bp: {
     type: String,
@@ -17,10 +17,10 @@ const VitalSignSchema = new Schema({
     type: String,
   },
   respirations: {
-    type: Number,
+    type: String,
   },
   spo2: {
-    type: Number,
+    type: String,
   },
   oxygenSource: {
     type: String,

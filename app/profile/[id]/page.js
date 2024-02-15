@@ -1,10 +1,12 @@
-import AllergenForm from "@/components/AllergenForm"
+import AllergenForm from "@/components/AllergenForm";
+import DemographicForm from "@/components/DemographicForm";
+import FamilyHxForm from "@/components/FamilyHxForm";
 
-function ProfilePage({params}) {
+function ProfilePage({ params }) {
   return (
     <div>
-      <AllergenForm id={params.id}/>
+      <FamilyHxForm id={params.id} />
     </div>
-  )
+  );
 }
-export default ProfilePage
+export default ProfilePage;

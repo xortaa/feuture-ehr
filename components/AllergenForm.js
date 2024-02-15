@@ -21,20 +21,15 @@ function AllergenForm({ id }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Stack spacing={3}>
-        <Input
-          size="lg"
-          variant="filled"
-          placeholder="Allergen Name"
-          {...register("allergenName", { required: true })}
-        />
-        <Input size="lg" variant="filled" placeholder="Reaction" {...register("reaction", { required: true })} />
-        <Select size="lg" variant="filled" placeholder="Severity" {...register("severity", { required: true })}>
+      <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
+        <Input size="sm" variant="outline" placeholder="Allergen Name" {...register("allergenName")} />
+        <Input size="sm" variant="outline" placeholder="Reaction" {...register("reaction")} />
+        <Select size="sm" variant="outline" placeholder="Severity" {...register("severity")}>
           <option value="Mild">Mild</option>
           <option value="Moderate">Moderate</option>
           <option value="Severe">Severe</option>
         </Select>
-        <Input size="lg" variant="filled" placeholder="Onset" {...register("onset", { required: true })} type="date" />
+        <Input size="sm" variant="outline" placeholder="Onset" {...register("onset")} type="date" />
         <Button w={150} colorScheme="green" variant="solid" type="submit">
           Submit
         </Button>

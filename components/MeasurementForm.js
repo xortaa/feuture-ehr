@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Stack, Input, Button, Select, FormControl, FormLabel } from "@chakra-ui/react";
+import { Stack, Input, Button, FormControl, FormLabel } from "@chakra-ui/react";
 import axios from "axios";
 
 function MeasurementForm({ id }) {
@@ -12,8 +12,13 @@ function MeasurementForm({ id }) {
     formState: { errors },
   } = useForm();
 
+  const weight = watch("weight");
+  const height = watch("height");
+
+  const bmi = weight && height ? (weight / (height / 100) ** 2).toFixed(2) : "";
+
   const onSubmit = (data) => {
-    const newData = { ...data, patientId: id };
+    const newData = { ...data, patientId: id, bmi };
     axios.post("/api/measurement", newData).then((res) => {
       console.log(res);
     });
@@ -23,16 +28,12 @@ function MeasurementForm({ id }) {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
         <FormControl>
-          <FormLabel>Height</FormLabel>
+          <FormLabel>Height (cm)</FormLabel>
           <Input size="sm" variant="outline" {...register("height")} />
         </FormControl>
         <FormControl>
-          <FormLabel>Weight</FormLabel>
+          <FormLabel>Weight (kg)</FormLabel>
           <Input size="sm" variant="outline" {...register("weight")} />
-        </FormControl>
-        <FormControl>
-          <FormLabel>BMI</FormLabel>
-          <Input size="sm" variant="outline" {...register("bmi")} />
         </FormControl>
         <FormControl>
           <FormLabel>Date</FormLabel>
@@ -46,11 +47,3 @@ function MeasurementForm({ id }) {
   );
 }
 export default MeasurementForm;
-
-// {
-//   "patientId": "65ccf745517265b9bbffc452",
-//   "height": 180,
-//   "weight": 75,
-//   "bmi": 23.15,
-//   "date": "2022-01-01"
-// }

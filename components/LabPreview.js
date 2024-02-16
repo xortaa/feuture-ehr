@@ -41,7 +41,6 @@ function LabPreview({ lab, id }) {
       <LabTable labs={labs} onDelete={handleDelete}/>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New Allergen</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white">
           <Button
             w={150}

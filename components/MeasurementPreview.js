@@ -16,8 +16,13 @@ function MeasurementPreview({ measurement, id }) {
     formState: { errors },
   } = useForm();
 
+  const weight = watch("weight");
+  const height = watch("height");
+
+  const bmi = weight && height ? (weight / (height / 100) ** 2).toFixed(2) : "";
+
   const onSubmit = (data) => {
-    const newData = { ...data, patientId: id };
+    const newData = { ...data, patientId: id, bmi };
     axios.post("/api/measurement", newData).then((res) => {
       if (res.status === 200) {
         setMeasurements([...measurements, res.data.measurement]);
@@ -38,16 +43,12 @@ function MeasurementPreview({ measurement, id }) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
-            <FormLabel>Height</FormLabel>
+            <FormLabel>Height (cm)</FormLabel>
             <Input size="sm" variant="outline" {...register("height")} />
           </FormControl>
           <FormControl>
-            <FormLabel>Weight</FormLabel>
+            <FormLabel>Weight (kg)</FormLabel>
             <Input size="sm" variant="outline" {...register("weight")} />
-          </FormControl>
-          <FormControl>
-            <FormLabel>BMI</FormLabel>
-            <Input size="sm" variant="outline" {...register("bmi")} />
           </FormControl>
           <FormControl>
             <FormLabel>Date</FormLabel>

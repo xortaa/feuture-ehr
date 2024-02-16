@@ -32,7 +32,7 @@ function VitalSignPreview({ vitalSign, id }) {
   return (
     <Stack spacing={3}>
       <Heading as="h4" size="md">
-        VitalSigns
+        Vital Signs
       </Heading>
       <VitalSignTable vitalSigns={vitalSigns} onDelete={handleDelete} />;
       <form onSubmit={handleSubmit(onSubmit)}>

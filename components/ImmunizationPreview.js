@@ -38,7 +38,6 @@ function ImmunizationPreview({ immunization, id }) {
       <ImmunizationTable immunizations={immunizations} onDelete={handleDelete}/>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New Immunization</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl variant="floating">
             <FormLabel>Name</FormLabel>

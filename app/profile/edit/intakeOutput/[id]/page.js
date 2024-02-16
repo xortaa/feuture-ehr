@@ -51,7 +51,6 @@ function EditIntakeOutput({ params }) {
       </Stack>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New IntakeOutput</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
             <FormLabel>Intake Time</FormLabel>

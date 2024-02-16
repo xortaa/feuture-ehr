@@ -36,7 +36,6 @@ function IntakeOutputPreview({ intakeOutput, id }) {
       </Heading>
       <IntakeOutputTable intakeOutputs={intakeOutputs} onDelete={handleDelete} />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New Intake/Output</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
             <FormLabel>Intake Time</FormLabel>

@@ -32,7 +32,7 @@ function SocialHxPreview({ socialHx, id }) {
   return (
     <Stack spacing={3}>
       <Heading as="h4" size="md">
-        SocialHxs
+        SocialHx
       </Heading>
       <SocialHxTable socialHxs={socialHxs} onDelete={handleDelete} />;
       <form onSubmit={handleSubmit(onSubmit)}>

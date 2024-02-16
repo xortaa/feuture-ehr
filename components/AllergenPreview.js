@@ -36,7 +36,6 @@ function AllergenPreview({ allergen, id }) {
       </Heading>
       <AllergenTable allergens={allergens} onDelete={handleDelete} />;
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New Allergen</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
             <FormLabel>Allergen Name</FormLabel>

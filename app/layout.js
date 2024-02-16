@@ -5,16 +5,14 @@ import { Providers } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Feuture Medical Center",
-  description: "Feuture Medical Center - Morayta Branch Demo EHR",
+  title: "Tamaraw Medical Center",
+  description: "Tamraw Medical Center EHR",
 };
-
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="body">
+      <body className={inter.className}>
         <Providers>
           <main>{children}</main>
         </Providers>

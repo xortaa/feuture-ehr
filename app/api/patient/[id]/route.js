@@ -16,6 +16,7 @@ export const GET = async (NextRequest, { params }) => {
       .populate("socialHx")
       .populate("vitalSign")
       .populate("measurement")
+      .populate("intakeOutput")
       .exec();
     if (!patient) {
       return NextResponse.json("Patient not found", { status: 404 });

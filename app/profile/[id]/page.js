@@ -28,6 +28,7 @@ import MeasurementPreview from "@/components/MeasurementPreview";
 import MedicationPreview from "@/components/MedicationPreview";
 import SocialHxPreview from "@/components/SocialHxPreview";
 import VitalSignsPreview from "@/components/VitalSignPreview";
+import IntakeOutputPreview from "@/components/IntakeOutputPreview";
 import { useRouter } from "next/navigation";
 
 function ProfilePage({ params }) {
@@ -96,6 +97,7 @@ function ProfilePage({ params }) {
           <Tab flexShrink={0}>Medications</Tab>
           <Tab flexShrink={0}>SocialHx</Tab>
           <Tab flexShrink={0}>Vitals</Tab>
+          <Tab flexShrink={0}>Intake/Output</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -123,6 +125,9 @@ function ProfilePage({ params }) {
           </TabPanel>
           <TabPanel>
             {record && record.vitalSign && <VitalSignsPreview vitalSign={record.vitalSign} id={params.id} />}
+          </TabPanel>
+          <TabPanel>
+            {record && record.intakeOutput && <IntakeOutputPreview intakeOutput={record.intakeOutput} id={params.id} />}
           </TabPanel>
         </TabPanels>
       </Tabs>

@@ -15,6 +15,7 @@ export const GET = async (NextRequest) => {
       .populate("socialHx")
       .populate("vitalSign")
       .populate("measurement")
+      .populate("intakeOutput")
       .exec();
     return NextResponse.json(patients, { status: 200 });
   } catch (error) {

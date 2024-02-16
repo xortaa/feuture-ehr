@@ -30,6 +30,7 @@ const connectToDatabase = async () => {
     require("@/models/patient");
     require("@/models/socialHx");
     require("@/models/vitalSign");
+    require("@/models/intakeOutput");
   } catch (error) {
     console.log(error);
   }

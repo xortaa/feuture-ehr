@@ -26,7 +26,7 @@ const PatientSchema = new Schema({
   ethnicity: {
     type: String,
   },
-  phoneNumber: { 
+  phoneNumber: {
     type: String,
   },
   occupation: {
@@ -73,9 +73,9 @@ const PatientSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "Lab",
   },
-  measurement: { 
+  measurement: {
     type: [Schema.Types.ObjectId],
-    ref: "Measurement" 
+    ref: "Measurement",
   },
   medication: {
     type: [Schema.Types.ObjectId],
@@ -88,6 +88,10 @@ const PatientSchema = new Schema({
   vitalSign: {
     type: [Schema.Types.ObjectId],
     ref: "VitalSign",
+  },
+  intakeOutput: {
+    type: [Schema.Types.ObjectId],
+    ref: "IntakeOutput",
   },
 });
 

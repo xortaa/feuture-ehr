@@ -1,22 +1,12 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-import {
-  Stack,
-  Input,
-  Button,
-  Select,
-  Box,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from "@chakra-ui/react";
-import axios from 'axios'
+import { Stack, Input, Button, Select, FormControl, FormLabel } from "@chakra-ui/react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 function DemographicForm() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -24,74 +14,87 @@ function DemographicForm() {
     formState: { errors },
   } = useForm();
 
-  const [dateInputType, setDateInputType] = useState("text");
-
-  const maritalStatus = watch("maritalStatus");
-
   const onSubmit = (data) => {
     axios.post("/api/patient", data).then((res) => {
       console.log(res);
+      if (res.status === 200) {
+        router.push("/");
+      }
     });
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
-        <Input size="sm" variant="outline" placeholder="First Name" {...register("firstName")} />
-        <Input size="sm" variant="outline" placeholder="Last Name" {...register("lastName")} />
-        <Input size="sm" variant="outline" placeholder="Age" {...register("age")} />
-        <Input
-          size="sm"
-          variant="outline"
-          placeholder="Date of Birth"
-          {...register("dob")}
-          type={dateInputType}
-          onFocus={() => setDateInputType("date")}
-          onBlur={() => setDateInputType("text")}
-        />
-        <Input size="sm" variant="outline" placeholder="Address" {...register("address")} />
-        <Input size="sm" variant="outline" placeholder="Phone Number" {...register("phoneNumber")} />
-        <Input size="sm" variant="outline" placeholder="Religion" {...register("religion")} />
-        <Input size="sm" variant="outline" placeholder="Ethinicity" {...register("ethnicity")} />
-        <Input size="sm" variant="outline" placeholder="Occupation" {...register("occupation")} />
-        <Select size="sm" variant="outline" placeholder="Marital Status" {...register("maritalStatus")}>
-          <option value="Single">Single</option>
-          <option value="Married">Married</option>
-          <option value="Divorced">Divorced</option>
-          <option value="Widowed">Widowed</option>
-        </Select>
-        <Input
-          disabled={!maritalStatus === "married"}
-          size="sm"
-          variant="outline"
-          placeholder="Spouse Name"
-          {...register("spouseName")}
-        />
-        <Input size="sm" variant="outline" placeholder="Number of Children" {...register("numberOfChildren")} />
-        <Input
-          size="sm"
-          variant="outline"
-          placeholder="Emergency Contact First Name"
-          {...register("emergencyContactFirstName")}
-        />
-        <Input
-          size="sm"
-          variant="outline"
-          placeholder="Emergency Contact Last Name"
-          {...register("emergencyContactLastName")}
-        />
-        <Input
-          size="sm"
-          variant="outline"
-          placeholder="Emergency Contact Relationship"
-          {...register("emergencyContactRelationship")}
-        />
-        <Input
-          size="sm"
-          variant="outline"
-          placeholder="Emergency Contact Number"
-          {...register("emergencyContactNumber")}
-        />
+        <FormControl variant="floating">
+          <FormLabel>First Name</FormLabel>
+          <Input size="sm" variant="outline" {...register("firstName")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Last Name</FormLabel>
+          <Input size="sm" variant="outline" {...register("lastName")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Age</FormLabel>
+          <Input size="sm" variant="outline" {...register("age")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Date of Birth</FormLabel>
+          <Input size="sm" variant="outline" {...register("dob")} type="date" />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Address</FormLabel>
+          <Input size="sm" variant="outline" {...register("address")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Phone Number</FormLabel>
+          <Input size="sm" variant="outline" {...register("phoneNumber")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Religion</FormLabel>
+          <Input size="sm" variant="outline" {...register("religion")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Ethinicity</FormLabel>
+          <Input size="sm" variant="outline" {...register("ethnicity")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Occupation</FormLabel>
+          <Input size="sm" variant="outline" {...register("occupation")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Marital Status</FormLabel>
+          <Select size="sm" variant="outline" {...register("maritalStatus")}>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+          </Select>
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Spouse Name</FormLabel>
+          <Input size="sm" variant="outline" {...register("spouseName")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Number of Children</FormLabel>
+          <Input size="sm" variant="outline" {...register("numberOfChildren")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Emergency Contact First Name</FormLabel>
+          <Input size="sm" variant="outline" {...register("emergencyContactFirstName")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Emergency Contact Last Name</FormLabel>
+          <Input size="sm" variant="outline" {...register("emergencyContactLastName")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Emergency Contact Relationship</FormLabel>
+          <Input size="sm" variant="outline" {...register("emergencyContactRelationship")} />
+        </FormControl>
+        <FormControl variant="floating">
+          <FormLabel>Emergency Contact Number</FormLabel>
+          <Input size="sm" variant="outline" {...register("emergencyContactNumber")} />
+        </FormControl>
         <Button w={150} colorScheme="green" variant="solid" type="submit">
           Submit
         </Button>

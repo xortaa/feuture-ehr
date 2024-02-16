@@ -11,7 +11,7 @@ const FamilyHxSchema = new Schema({
     type: String,
   },
   age: {
-    type: String,
+    type: Number,
   },
   relatedDiseases: {
     type: String,

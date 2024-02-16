@@ -9,6 +9,8 @@ export const metadata = {
   description: "Feuture Medical Center - Morayta Branch Demo EHR",
 };
 
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

@@ -22,7 +22,7 @@ export const POST = async (NextRequest) => {
     const patientId = socialHxData.patientId;
     const patient = await Patient.findByIdAndUpdate(
       patientId,
-      { $set: { socialHx: newSocialHx._id } },
+      { $push: { socialHx: newSocialHx._id } },
       { new: true }
     );
     return NextResponse.json({ socialHx: newSocialHx, patient }, { status: 200 });

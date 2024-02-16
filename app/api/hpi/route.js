@@ -20,7 +20,7 @@ export const POST = async (NextRequest) => {
     const hpiData = await NextRequest.json();
     const newHpi = await Hpi.create(hpiData);
     const patientId = hpiData.patientId;
-    const patient = await Patient.findByIdAndUpdate(patientId, { $set: { hpi: newHpi._id } }, { new: true });
+    const patient = await Patient.findByIdAndUpdate(patientId, { $push: { hpi: newHpi._id } }, { new: true });
     return NextResponse.json({ hpi: newHpi, patient }, { status: 200 });
   } catch (error) {
     console.log(error);

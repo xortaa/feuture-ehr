@@ -62,7 +62,7 @@ const PatientSchema = new Schema({
     ref: "FamilyHx",
   },
   hpi: {
-    type: Schema.Types.ObjectId,
+    type: [Schema.Types.ObjectId],
     ref: "HPI",
   },
   immunization: {
@@ -82,7 +82,7 @@ const PatientSchema = new Schema({
     ref: "Medication",
   },
   socialHx: {
-    type: Schema.Types.ObjectId,
+    type: [Schema.Types.ObjectId],
     ref: "SocialHx",
   },
   vitalSign: {

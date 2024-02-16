@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styles from "@/styles/page.module.css";
 import PatientCard from "@/components/PatientCard";
 import axios from "axios";
-import { Stack, Heading, Button } from "@chakra-ui/react";
+import { Stack, Heading, Button, Grid } from "@chakra-ui/react";
 import Link from "next/link";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
           Patient Records
         </Heading>
         <Link href="/new">
-          <Button colorScheme="green" variant="outline">
+          <Button colorScheme="green" variant="outline" size="sm">
             Add A New Record
           </Button>
         </Link>
@@ -36,7 +36,7 @@ export default function Home() {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <Stack spacing={3} mb={3}>
+          <Grid templateColumns="repeat(auto-fill, minmax(400px, 1fr))" gap={3}>
             {records.map((record) => (
               <PatientCard
                 id={record._id}
@@ -47,7 +47,7 @@ export default function Home() {
                 phoneNumber={record.phoneNumber}
               />
             ))}
-          </Stack>
+          </Grid>
         )}
       </div>
     </div>

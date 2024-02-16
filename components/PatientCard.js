@@ -1,14 +1,24 @@
-"use client";
-
+import {
+  useColorModeValue,
+  Card,
+  CardHeader,
+  Heading,
+  Stack,
+  CardBody,
+  Box,
+  Text,
+  CardFooter,
+  StackDivider,
+} from "@chakra-ui/react";
 import Link from "next/link";
-import styles from "@/styles/patientCard.module.css";
-import { Card, CardHeader, CardBody, CardFooter, Box, Heading, Text, Stack, StackDivider } from "@chakra-ui/react";
 
-function PatientCard({ id, firstName, lastName, age, phoneNumber, address }) {
+function PatientCard({ id, firstName, lastName, phoneNumber, address }) {
+  const headerBg = useColorModeValue("green.500", "green.200");
+
   return (
     <Link href={`/profile/${id}`}>
-      <Card>
-        <CardHeader>
+      <Card p={5} shadow="md" borderWidth="1px">
+        <CardHeader bg={headerBg} color="white" p={3}>
           <Heading size="md">
             {firstName} {lastName}
           </Heading>
@@ -38,4 +48,5 @@ function PatientCard({ id, firstName, lastName, age, phoneNumber, address }) {
     </Link>
   );
 }
+
 export default PatientCard;

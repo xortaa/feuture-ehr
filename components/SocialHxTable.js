@@ -1,35 +1,64 @@
 import { Table, Thead, Tbody, Tr, Th, Td, TableContainer } from "@chakra-ui/react";
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
-function SocialHxTable({socialHxs}) {
+function  SocialHxTable({ socialHxs, onDelete }) {
+  const router = useRouter();
+
+  const handleDelete = (id) => {
+    axios.delete(`/api/socialHx/${id}`).then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        onDelete(id);
+      }
+    });
+  };
+
+  const headers = [
+    "Occupation",
+    "Marital Status",
+    "Living Situation",
+    "Educational Background",
+    "Financial Status",
+    "Substance Use",
+    "Diet & Exercise",
+    "Cultural/Religious Belief",
+    "Hobbies & Interests",
+  ];
+  const keys = [
+    "occupation",
+    "maritalStatus",
+    "livingSituation",
+    "educationalBackground",
+    "financialStatus",
+    "substanceUse",
+    "dietAndExercise",
+    "culturalAndReligiousBackground",
+    "hobbiesAndInterests",
+  ];
+
   return (
     <TableContainer>
       <Table variant="simple" size="sm">
-        <Thead>
-          <Tr>
-            <Th>Occupation</Th>
-            <Th>Marital Status</Th>
-            <Th>Living Situation</Th>
-            <Th>Educational Background</Th>
-            <Th>Financial Status</Th>
-            <Th>Substance Use</Th>
-            <Th>Diet & Exercise</Th>
-            <Th>Cultural/Religious Belief</Th>
-            <Th>Hobbies & Interests</Th>
-          </Tr>
-        </Thead>
         <Tbody>
           {socialHxs &&
-            socialHxs.map((socialHx, index) => (
+            socialHxs.length > 0 &&
+            keys.map((key, index) => (
               <Tr key={index}>
-                <Td>{socialHx.occupation}</Td>
-                <Td>{socialHx.maritalStatus}</Td>
-                <Td>{socialHx.livingSituation}</Td>
-                <Td>{socialHx.educationalBackground}</Td>
-                <Td>{socialHx.financialStatus}</Td>
-                <Td>{socialHx.substanceUse}</Td>
-                <Td>{socialHx.dietAndExercise}</Td>
-                <Td>{socialHx.culturalAndReligiousBackground}</Td>
-                <Td>{socialHx.hobbiesAndInterests}</Td>
+                <Th>{headers[index]}</Th>
+                <Td>{socialHxs[0][key]}</Td>
+                {index === keys.length - 1 && (
+                  <Td>
+                    <EditIcon
+                      onClick={() => router.push(`/profile/edit/socialHx/${socialHxs[0]._id}`)}
+                      boxSize={5}
+                      mx={1}
+                      cursor="pointer"
+                    />
+                    <DeleteIcon onClick={() => handleDelete(socialHxs[0]._id)} boxSize={5} mx={1} cursor="pointer" />
+                  </Td>
+                )}
               </Tr>
             ))}
         </Tbody>
@@ -38,17 +67,3 @@ function SocialHxTable({socialHxs}) {
   );
 }
 export default SocialHxTable;
-
-// {
-//         "_id": "65ce96faf5d1b9e11fbb4c0d",
-//         "occupation": "Software Developer",
-//         "maritalStatus": "Single",
-//         "livingSituation": "Living alone in a rented apartment",
-//         "educationalBackground": "Bachelor's degree in Computer Science",
-//         "financialStatus": "Stable",
-//         "substanceUse": "Occasional alcohol, no tobacco or drugs",
-//         "dietAndExercise": "Vegetarian diet, exercises 3 times a week",
-//         "culturalAndReligiousBackground": "Atheist, Caucasian",
-//         "hobbiesAndInterests": "Reading, coding, hiking",
-//         "__v": 0
-//     }

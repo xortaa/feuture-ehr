@@ -1,36 +1,56 @@
 "use client";
 
-import { useState } from "react";
+import { Heading, Input, Select, Button, Stack, FormControl, FormLabel } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { Stack, Input, Button, Select, FormControl, FormLabel, Heading } from "@chakra-ui/react";
 import axios from "axios";
-import VItalSignsTable from "./VItalSignsTable";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-function VitalSignsPreview({ vitalSign, id }) {
-  const [vitalSigns, setVitalSigns] = useState(vitalSign);
-
+function EditVitalSign({ params }) {
+  const router = useRouter();
+  const [vitalSignData, setVitalSignData] = useState([]);
   const {
     register,
+    setValue,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
 
+  useEffect(() => {
+    axios.get(`/api/vitalSign/${params.id}`).then((res) => {
+      setVitalSignData(res.data);
+      for (const [key, value] of Object.entries(res.data)) {
+        setValue(key, value);
+      }
+    });
+  }, []);
+
   const onSubmit = (data) => {
-    setVitalSigns([...vitalSigns, data]);
-    const newData = { ...data, patientId: id };
-    axios.post("/api/vitalSign", newData).then((res) => {
+    axios.patch(`/api/vitalSign/${params.id}`, data).then((res) => {
       console.log(res);
+      if (res.status === 200) {
+        router.back();
+      }
     });
   };
+
+  const handleRedirectBack = () => {
+    router.back();
+  };
+
   return (
-    <Stack spacing={3}>
-      <Heading as="h4" size="md">
-        Vital Signs
-      </Heading>
-      <VItalSignsTable vitalSigns={vitalSigns} />
+    <div style={{ margin: "30px 60px" }}>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3} pb={3}>
+        <Heading size="xl" noOfLines={1}>
+          Edit VitalSign
+        </Heading>
+        <Button colorScheme="green" variant="outline" size="sm" onClick={handleRedirectBack}>
+          Back To Patient
+        </Button>
+      </Stack>
+
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New Vital Sign</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
             <FormLabel>Temp</FormLabel>
@@ -69,7 +89,7 @@ function VitalSignsPreview({ vitalSign, id }) {
           </Button>
         </Stack>
       </form>
-    </Stack>
+    </div>
   );
 }
-export default VitalSignsPreview;
+export default EditVitalSign;

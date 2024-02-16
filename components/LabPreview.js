@@ -28,13 +28,17 @@ function LabPreview({ lab, id }) {
       console.log(res);
     });
   };
+
+   const handleDelete = (id) => {
+     setLabs(labs.filter((lab) => lab._id !== id));
+   };
   return (
     <Stack spacing={3}>
       <Heading as="h4" size="md">
         Lab Results
       </Heading>
 
-      <LabTable labs={labs} />
+      <LabTable labs={labs} onDelete={handleDelete}/>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Heading size="sm">Add a New Allergen</Heading>

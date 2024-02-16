@@ -24,16 +24,21 @@ function ImmunizationPreview({ immunization, id }) {
     });
   };
 
+    const handleDelete = (id) => {
+      setImmunizations(immunizations.filter((immunization) => immunization._id !== id));
+    };
+
+
   return (
     <Stack spacing={3}>
       <Heading as="h4" size="md">
         Immunizations
       </Heading>
 
-      <ImmunizationTable immunizations={immunizations} />
+      <ImmunizationTable immunizations={immunizations} onDelete={handleDelete}/>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New Allergen</Heading>
+        <Heading size="sm">Add a New Immunization</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl variant="floating">
             <FormLabel>Name</FormLabel>

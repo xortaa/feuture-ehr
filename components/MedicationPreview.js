@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Stack, Input, Button, Select, FormControl, FormLabel, Heading } from "@chakra-ui/react";
 import axios from "axios";
-import MeasurementTable from "./MeasurementTable";
 import MedicationTable from "./MedicationTable";
 
 function MedicationPreview({ medication, id }) {
@@ -18,20 +17,25 @@ function MedicationPreview({ medication, id }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    setMedications([...medications, data]);
     const newData = { ...data, patientId: id };
     axios.post("/api/medication", newData).then((res) => {
-      console.log(res);
+      if (res.status === 200) {
+        setMedications([...medications, res.data.medication]);
+      }
     });
   };
+
+  const handleDelete = (id) => {
+    setMedications(medications.filter((medication) => medication._id !== id));
+  };
+
   return (
     <Stack spacing={3}>
       <Heading as="h4" size="md">
-        Medication
+        Medications
       </Heading>
-      <MedicationTable medications={medications} />;
+      <MedicationTable medications={medications} onDelete={handleDelete} />;
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add New Medication</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
             <FormLabel>Name</FormLabel>

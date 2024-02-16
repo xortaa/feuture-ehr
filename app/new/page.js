@@ -6,11 +6,11 @@ function NewRecord() {
   return (
     <div style={{ margin: "30px 60px" }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3} pb={3}>
-        <Heading size="2xl" noOfLines={1}>
+        <Heading size="xl" noOfLines={1}>
           Add A New Patient
         </Heading>
         <Link href="/">
-          <Button colorScheme="green" variant="outline">
+          <Button colorScheme="green" variant="outline" size="sm">
             Back To Patient Records
           </Button>
         </Link>

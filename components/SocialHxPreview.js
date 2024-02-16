@@ -17,20 +17,25 @@ function SocialHxPreview({ socialHx, id }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    setSocialHxs([...socialHxs, data]);
     const newData = { ...data, patientId: id };
     axios.post("/api/socialHx", newData).then((res) => {
-      console.log(res);
+      if (res.status === 200) {
+        setSocialHxs([...socialHxs, res.data.socialHx]);
+      }
     });
   };
+
+  const handleDelete = (id) => {
+    setSocialHxs(socialHxs.filter((socialHx) => socialHx._id !== id));
+  };
+
   return (
     <Stack spacing={3}>
       <Heading as="h4" size="md">
-        SocialHx
+        SocialHxs
       </Heading>
-      <SocialHxTable socialHxs={socialHxs} />;
+      <SocialHxTable socialHxs={socialHxs} onDelete={handleDelete} />;
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New SocialHx</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
             <FormLabel>Occupation</FormLabel>

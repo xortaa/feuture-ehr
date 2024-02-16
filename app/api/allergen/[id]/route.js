@@ -2,7 +2,7 @@ import connectToDatabase from "@/utils/database";
 import Allergen from "@/models/allergen";
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async (NextRequest, params) => {
+export const GET = async (NextRequest, {params}) => {
   const id = params.id;
   await connectToDatabase();
   try {

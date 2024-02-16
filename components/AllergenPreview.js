@@ -17,11 +17,16 @@ function AllergenPreview({ allergen, id }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    setAllergens([...allergens, data]);
     const newData = { ...data, patientId: id };
     axios.post("/api/allergen", newData).then((res) => {
-      console.log(res);
+      if (res.status === 200) {
+        setAllergens([...allergens, res.data.allergen]);
+      }
     });
+  };
+
+  const handleDelete = (id) => {
+    setAllergens(allergens.filter((allergen) => allergen._id !== id));
   };
 
   return (
@@ -29,7 +34,7 @@ function AllergenPreview({ allergen, id }) {
       <Heading as="h4" size="md">
         Allergens
       </Heading>
-      <AllergenTable allergens={allergens} />;
+      <AllergenTable allergens={allergens} onDelete={handleDelete} />;
       <form onSubmit={handleSubmit(onSubmit)}>
         <Heading size="sm">Add a New Allergen</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">

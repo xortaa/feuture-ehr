@@ -17,11 +17,16 @@ function MeasurementPreview({ measurement, id }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    setMeasurements([...measurements, data]);
     const newData = { ...data, patientId: id };
     axios.post("/api/measurement", newData).then((res) => {
-      console.log(res);
+      if (res.status === 200) {
+        setMeasurements([...measurements, res.data.measurement]);
+      }
     });
+  };
+
+  const handleDelete = (id) => {
+    setMeasurements(measurements.filter((measurement) => measurement._id !== id));
   };
 
   return (
@@ -29,9 +34,8 @@ function MeasurementPreview({ measurement, id }) {
       <Heading as="h4" size="md">
         Measurements
       </Heading>
-      <MeasurementTable measurements={measurements} />;
+      <MeasurementTable measurements={measurements} onDelete={handleDelete} />;
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add New Measurements</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
             <FormLabel>Height</FormLabel>

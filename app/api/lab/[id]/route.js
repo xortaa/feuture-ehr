@@ -2,7 +2,7 @@ import connectToDatabase from "@/utils/database";
 import Lab from "@/models/lab";
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async (NextRequest, params) => {
+export const GET = async (NextRequest, { params }) => {
   const id = params.id;
   try {
     await connectToDatabase();

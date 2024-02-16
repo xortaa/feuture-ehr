@@ -15,11 +15,16 @@ function FamilyHxPreview({ familyHx, id }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    setFamilyHxs([...familyHxs, data]);
     const newData = { ...data, patientId: id };
     axios.post("/api/familyHx", newData).then((res) => {
-      console.log(res);
+      if (res.status === 200) {
+        setFamilyHxs([...familyHxs, res.data.familyHx]);
+      }
     });
+  };
+
+  const handleDelete = (id) => {
+    setFamilyHxs(familyHxs.filter((familyHx) => familyHx._id !== id));
   };
 
   return (
@@ -27,7 +32,7 @@ function FamilyHxPreview({ familyHx, id }) {
       <Heading as="h4" size="md">
         FamilyHx
       </Heading>
-      <FamilyHxTable familyHxs={familyHxs} />
+      <FamilyHxTable familyHxs={familyHxs} onDelete={handleDelete} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl variant="floating">

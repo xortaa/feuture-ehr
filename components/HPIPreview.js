@@ -17,22 +17,27 @@ function HPIPreview({ hpi, id }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    setHpis([...hpis, data]);
     const newData = { ...data, patientId: id };
     axios.post("/api/hpi", newData).then((res) => {
-      console.log(res);
+      if (res.status === 200) {
+        setHpis([...hpis, res.data.hpi]);
+      }
     });
   };
+
+  const handleDelete = (id) => {
+    setHpis(hpis.filter((hpi) => hpi._id !== id));
+  };
+
   return (
     <Stack spacing={3}>
       <Heading as="h4" size="md">
         HPI
       </Heading>
 
-      <HPITable hpis={hpis} />
+      <HPITable hpis={hpis} onDelete={handleDelete} />
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading size="sm">Add a New HPI</Heading>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl variant="floating">
             <FormLabel>Chief Complaint</FormLabel>

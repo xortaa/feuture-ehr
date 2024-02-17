@@ -50,7 +50,7 @@ function EditIntakeOutput({ params }) {
         </Button>
       </Stack>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="bg">
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
             <FormLabel>Intake Time</FormLabel>

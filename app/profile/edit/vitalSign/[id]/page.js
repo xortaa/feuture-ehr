@@ -40,7 +40,7 @@ function EditVitalSign({ params }) {
   };
 
   return (
-    <div style={{ margin: "30px 60px" }}>
+    <div style={{ margin: "30px 60px" }} className="bg">
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3} pb={3}>
         <Heading size="xl" noOfLines={1}>
           Edit VitalSign

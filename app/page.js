@@ -27,7 +27,7 @@ export default function Home() {
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3} pb={3}>
         <Flex justifyContent={"center"} alignItems={"center"}>
           <Image src={logo} width={80} height={80} alt="logo" />
-          <Heading size="lg" noOfLines={1}>
+          <Heading size="lg" noOfLines={1} color="green">
             Tamaraw Medical Center Patient Records
           </Heading>
         </Flex>

@@ -27,8 +27,8 @@ function LabForm({ id }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3} p={4} boxShadow="md" bg="white">
-        <Button w={150} colorScheme="yellow" variant="outline" onClick={() => append({ testName: "", testResult: "" })}>
-          Add lab test input
+        <Button w={150} colorScheme="yellow" variant="outline" size="sm" onClick={() => append({ testName: "", testResult: "" })}>
+          + lab test input
         </Button>
         {fields.map((field, index) => (
           <Stack direction="row">

@@ -29,16 +29,16 @@ function LabPreview({ lab, id }) {
     });
   };
 
-   const handleDelete = (id) => {
-     setLabs(labs.filter((lab) => lab._id !== id));
-   };
+  const handleDelete = (id) => {
+    setLabs(labs.filter((lab) => lab._id !== id));
+  };
   return (
     <Stack spacing={3}>
       <Heading as="h4" size="md">
         Lab Results
       </Heading>
 
-      <LabTable labs={labs} onDelete={handleDelete}/>
+      <LabTable labs={labs} onDelete={handleDelete} />
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} p={4} boxShadow="md" bg="white">
@@ -46,9 +46,10 @@ function LabPreview({ lab, id }) {
             w={150}
             colorScheme="yellow"
             variant="outline"
+            size="sm"
             onClick={() => append({ testName: "", testResult: "" })}
           >
-            Add lab test input
+            + lab test input
           </Button>
           {fields.map((field, index) => (
             <Stack direction="row">

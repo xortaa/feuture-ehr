@@ -19,22 +19,6 @@ main {
   overflow-x: hidden;
 }
 
-html::before,
-body::before,
-main::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: url("../public/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.4;
-  z-index: -2;
-}
 
 a {
   color: inherit;
@@ -44,22 +28,6 @@ a {
 body {
   position: relative;
  
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
-  background-image: url("../public/logo.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.8; 
-  z-index: -1;
 }
 
 #logo { 

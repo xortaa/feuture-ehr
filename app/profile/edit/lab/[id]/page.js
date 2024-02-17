@@ -62,9 +62,10 @@ function EditLab({ params }) {
             w={150}
             colorScheme="yellow"
             variant="outline"
+            size="sm"
             onClick={() => append({ testName: "", testResult: "" })}
           >
-            Add lab test input
+            + lab test input
           </Button>
           {fields.map((field, index) => (
             <Stack direction="row">

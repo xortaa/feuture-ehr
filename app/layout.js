@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto_mono = Roboto_Mono({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Tamaraw Medical Center",
@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto_mono.className}>
         <Providers>
           <main>{children}</main>
         </Providers>

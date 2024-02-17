@@ -17,15 +17,14 @@ function PatientCard({ id, firstName, lastName, phoneNumber, address }) {
 
   return (
     <Link href={`/profile/${id}`}>
-      <Card p={5} shadow="md" borderWidth="1px">
-        <CardHeader bg={headerBg} color="white" p={3}>
+      <Card p={3} shadow="md" borderWidth="1px">
+        <CardHeader bg="green" color="white" p={2} borderRadius={5}>
           <Heading size="md">
             {firstName} {lastName}
           </Heading>
         </CardHeader>
-
         <CardBody>
-          <Stack divider={<StackDivider />} spacing="4">
+          <Stack divider={<StackDivider />} spacing="2">
             <Box>
               <Heading size="xs" textTransform="uppercase">
                 Address

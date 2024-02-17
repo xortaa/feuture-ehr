@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import styles from "@/styles/page.module.css";
 import PatientCard from "@/components/PatientCard";
 import axios from "axios";
-import { Stack, Heading, Button, Grid } from "@chakra-ui/react";
+import { Stack, Heading, Button, Grid, Text, Flex } from "@chakra-ui/react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/public/logo.png";
 
 export default function Home() {
   const [records, setRecords] = useState([]);
@@ -23,9 +25,12 @@ export default function Home() {
   return (
     <div style={{ margin: "30px 60px" }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3} pb={3}>
-        <Heading size="xl" noOfLines={1}>
-          Patient Records
-        </Heading>
+        <Flex justifyContent={"center"} alignItems={"center"}>
+          <Image src={logo} width={80} height={80} alt="logo" />
+          <Text size="xl" noOfLines={1}>
+            Tamaraw Medical Center Patient Records
+          </Text>
+        </Flex>
         <Link href="/new">
           <Button colorScheme="green" variant="outline" size="sm">
             Add A New Record
@@ -36,7 +41,7 @@ export default function Home() {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <Grid templateColumns="repeat(auto-fill, minmax(400px, 1fr))" gap={3}>
+          <Grid mx={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap={3}>
             {records.map((record) => (
               <PatientCard
                 id={record._id}

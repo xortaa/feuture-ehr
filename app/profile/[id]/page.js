@@ -64,7 +64,7 @@ function ProfilePage({ params }) {
           Delete Patient
         </Button>
       </Flex>
-      <Tabs colorScheme="green" isFitted variant="enclosed">
+      <Tabs colorScheme="green" isFitted variant="unstyled">
         <TabList
           overflowX="scroll"
           overflowY="hidden"
@@ -75,18 +75,42 @@ function ProfilePage({ params }) {
             },
           }}
         >
-          <Tab>Profile</Tab>
-          <Tab>Allergen</Tab>
-          <Tab>FamilyHx</Tab>
-          <Tab>HPI</Tab>
-          <Tab>Immunization</Tab>
-          <Tab>Lab</Tab>
-          <Tab>Measurements</Tab>
-          <Tab>Medications</Tab>
-          <Tab>SocialHx</Tab>
-          <Tab>Vitals</Tab>
-          <Tab>Intake/Output</Tab>
-          <Tab>Nurse Notes</Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Profile
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Allergen
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            FamilyHx
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            HPI
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Immunization
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Lab
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Measurements
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Medications
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            SocialHx
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Vitals
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Intake/Output
+          </Tab>
+          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
+            Nurse Notes
+          </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>

@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ margin: "30px 60px" }}>
+    <div style={{ margin: "30px 60px" }} className="bg">
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3} pb={3}>
         <Flex justifyContent={"center"} alignItems={"center"}>
           <Image src={logo} width={80} height={80} alt="logo" />

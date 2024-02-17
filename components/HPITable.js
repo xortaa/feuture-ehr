@@ -32,7 +32,7 @@ function HPITable({ hpis, onDelete }) {
           <Tbody>
             {hpis &&
               hpis.map((hpi, index) => (
-                <Tr>
+                <Tr key={index}>
                   <Td>{hpi.chiefComplaint}</Td>
                   <Td>{hpi.duration}</Td>
                   <Td>{hpi.severity}</Td>

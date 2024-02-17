@@ -31,7 +31,7 @@ function FamilyHxTable({ familyHxs, onDelete }) {
           <Tbody>
             {familyHxs &&
               familyHxs.map((familyHx, index) => (
-                <Tr>
+                <Tr key={index}>
                   <Td>
                     {familyHx.firstName} {familyHx.lastName}
                   </Td>

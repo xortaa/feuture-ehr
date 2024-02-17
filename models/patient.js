@@ -93,6 +93,10 @@ const PatientSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "IntakeOutput",
   },
+  nurseNotes: {
+    type: [Schema.Types.ObjectId],
+    ref: "NurseNotes",
+  },
 });
 
 const Patient = models.Patient || model("Patient", PatientSchema);

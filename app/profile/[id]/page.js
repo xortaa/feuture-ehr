@@ -1,21 +1,8 @@
 "use client";
 
-import AllergenForm from "@/components/AllergenForm";
-import DemographicForm from "@/components/DemographicForm";
-import FamilyHxForm from "@/components/FamilyHxForm";
-import ImmunizationForm from "@/components/ImmunizationForm";
-import HPIForm from "@/components/HPIForm";
-import LabForm from "@/components/LabForm";
-import MeasurementForm from "@/components/MeasurementForm";
-import MedicationForm from "@/components/MedicationForm";
-import SocialHxForm from "@/components/SocialHxForm";
-import VitalSignsForm from "@/components/VitalSignForm";
-
 import DemographicTable from "@/components/DemographicTable";
-import AllergenTable from "@/components/AllergenTable";
-import FamilyHxTable from "@/components/FamilyHxTable";
 
-import { Tabs, TabList, Tab, TabPanels, TabPanel, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Tabs, TabList, Tab, TabPanels, TabPanel, Button, Flex, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
@@ -29,6 +16,7 @@ import MedicationPreview from "@/components/MedicationPreview";
 import SocialHxPreview from "@/components/SocialHxPreview";
 import VitalSignsPreview from "@/components/VitalSignPreview";
 import IntakeOutputPreview from "@/components/IntakeOutputPreview";
+import NurseNotesPreview from "@/components/NurseNotesPreview";
 import { useRouter } from "next/navigation";
 
 function ProfilePage({ params }) {
@@ -64,7 +52,7 @@ function ProfilePage({ params }) {
   };
 
   return (
-    <div style={{ margin: "30px 60px" }}>
+    <div style={{ margin: "30px 60px" }} className="bg">
       <Flex mb={3} justifyContent={"flex-end"} gap={3}>
         <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectHome}>
           Back To Patient Records
@@ -80,24 +68,25 @@ function ProfilePage({ params }) {
         <TabList
           overflowX="scroll"
           overflowY="hidden"
-          sx={{
-            scrollbarWidth: "none",
+          xs={{
+            scrollbarWidth: "30px",
             "::-webkit-scrollbar": {
               display: "none",
             },
           }}
         >
-          <Tab flexShrink={0}>Profile</Tab>
-          <Tab flexShrink={0}>Allergen</Tab>
-          <Tab flexShrink={0}>FamilyHx</Tab>
-          <Tab flexShrink={0}>HPI</Tab>
-          <Tab flexShrink={0}>Immunization</Tab>
-          <Tab flexShrink={0}>Lab</Tab>
-          <Tab flexShrink={0}>Measurements</Tab>
-          <Tab flexShrink={0}>Medications</Tab>
-          <Tab flexShrink={0}>SocialHx</Tab>
-          <Tab flexShrink={0}>Vitals</Tab>
-          <Tab flexShrink={0}>Intake/Output</Tab>
+          <Tab>Profile</Tab>
+          <Tab>Allergen</Tab>
+          <Tab>FamilyHx</Tab>
+          <Tab>HPI</Tab>
+          <Tab>Immunization</Tab>
+          <Tab>Lab</Tab>
+          <Tab>Measurements</Tab>
+          <Tab>Medications</Tab>
+          <Tab>SocialHx</Tab>
+          <Tab>Vitals</Tab>
+          <Tab>Intake/Output</Tab>
+          <Tab>Nurse Notes</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -128,6 +117,9 @@ function ProfilePage({ params }) {
           </TabPanel>
           <TabPanel>
             {record && record.intakeOutput && <IntakeOutputPreview intakeOutput={record.intakeOutput} id={params.id} />}
+          </TabPanel>
+          <TabPanel>
+            {record && record.nurseNotes && <NurseNotesPreview nurseNotes={record.nurseNotes} id={params.id} />}
           </TabPanel>
         </TabPanels>
       </Tabs>

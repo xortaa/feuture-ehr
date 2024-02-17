@@ -30,7 +30,7 @@ function ImmunizationTable({ immunizations }) {
           <Tbody>
             {immunizations &&
               immunizations.map((immunization, index) => (
-                <Tr>
+                <Tr key={index}>
                   <Td>{immunization.name}</Td>
                   <Td>{immunization && immunization.date && immunization.date.split("T")[0]}</Td>
                   <Td>

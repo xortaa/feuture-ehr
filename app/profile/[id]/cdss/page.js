@@ -6,7 +6,7 @@ import Link from "next/link";
 import axios from "axios";
 import AssessmentPreview from "@/components/AssessmentPreview";
 import PlanningPreview from "@/components/PlanningPreview";
-import HPIPreview from "@/components/HPIPreview";
+import InterventionPreview from "@/components/InterventionPreview";
 import ImmunizationPreview from "@/components/ImmunizationPreview";
 import { useRouter } from "next/navigation";
 import DiagnosisPreview from "@/components/DiagnosisPreview";
@@ -93,7 +93,9 @@ function ProfilePage({ params }) {
           <TabPanel>
             {record && record.planning && <PlanningPreview planning={record.planning} id={params.id} />}
           </TabPanel>
-          <TabPanel>{record && record.hpi && <HPIPreview hpi={record.hpi} id={params.id} />}</TabPanel>
+          <TabPanel>
+            {record && record.hpi && <InterventionPreview intervention={record.intervention} id={params.id} />}
+          </TabPanel>
           <TabPanel>
             {record && record.immunization && <ImmunizationPreview immunization={record.immunization} id={params.id} />}
           </TabPanel>

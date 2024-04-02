@@ -3,15 +3,15 @@ import { Schema, model, models } from "mongoose";
 const DiagnosisSchema = new Schema({
   impairedSkinIntegrity: {
     type: String,
-    enum: ["Yes", "No", "Mild", "Moderate", "Severe"],
+    enum: ["None", "Mild", "Moderate", "Severe"],
   },
   pain: {
     type: String,
-    enum: ["Yes", "No", "Mild", "Moderate", "Severe"],
+    enum: ["None", "Mild", "Moderate", "Severe"],
   },
   riskForInfection: {
     type: String,
-    enum: ["Yes", "No", "Low", "Moderate", "High"],
+    enum: ["None", "Low", "Moderate", "High"],
   },
   otherDiagnoses: {
     type: String,

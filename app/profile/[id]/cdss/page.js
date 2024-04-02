@@ -1,17 +1,15 @@
 "use client";
 
-import DemographicTable from "@/components/DemographicTable";
-
 import { Tabs, TabList, Tab, TabPanels, TabPanel, Button, Flex, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import AssessmentPreview from "@/components/AssessmentPreview";
-import AllergenPreview from "@/components/AllergenPreview";
 import FamilyHxPreview from "@/components/FamilyHxPreview";
 import HPIPreview from "@/components/HPIPreview";
 import ImmunizationPreview from "@/components/ImmunizationPreview";
 import { useRouter } from "next/navigation";
+import DiagnosisPreview from "@/components/DiagnosisPreview";
 
 function ProfilePage({ params }) {
   const [record, setRecord] = useState([]);
@@ -89,7 +87,9 @@ function ProfilePage({ params }) {
           <TabPanel>
             {record && record.assessment && <AssessmentPreview assessment={record.assessment} id={params.id} />}
           </TabPanel>
-          <TabPanel></TabPanel>
+          <TabPanel>
+            {record && record.diagnosis && <DiagnosisPreview diagnosis={record.diagnosis} id={params.id} />}
+          </TabPanel>
           <TabPanel>
             {record && record.familyHx && <FamilyHxPreview familyHx={record.familyHx} id={params.id} />}
           </TabPanel>

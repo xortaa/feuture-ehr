@@ -10,13 +10,6 @@ import AllergenPreview from "@/components/AllergenPreview";
 import FamilyHxPreview from "@/components/FamilyHxPreview";
 import HPIPreview from "@/components/HPIPreview";
 import ImmunizationPreview from "@/components/ImmunizationPreview";
-import LabPreview from "@/components/LabPreview";
-import MeasurementPreview from "@/components/MeasurementPreview";
-import MedicationPreview from "@/components/MedicationPreview";
-import SocialHxPreview from "@/components/SocialHxPreview";
-import VitalSignsPreview from "@/components/VitalSignPreview";
-import IntakeOutputPreview from "@/components/IntakeOutputPreview";
-import NurseNotesPreview from "@/components/NurseNotesPreview";
 import { useRouter } from "next/navigation";
 
 function ProfilePage({ params }) {
@@ -51,15 +44,15 @@ function ProfilePage({ params }) {
     router.push(`/profile/edit/patient/${params.id}`);
   };
 
-  const handleRedirectCDSS = () => {
-    router.push(`/profile/${params.id}/cdss`);
+  const handleRedirectToPatient = () => {
+    router.push(`/profile/${params.id}`);
   };
 
   return (
     <div style={{ margin: "30px 60px" }} className="bg">
       <Flex justifyContent={"space-between"}>
-        <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectCDSS}>
-          CDSS
+        <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectToPatient}>
+          Back To Patient
         </Button>
         <Flex mb={3} justifyContent={"flex-end"} gap={3}>
           <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectHome}>
@@ -76,40 +69,19 @@ function ProfilePage({ params }) {
       <Tabs size="sm" colorScheme="green" isFitted variant="unstyled">
         <TabList>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Profile
+            Assesment
           </Tab>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Allergen
+            Diagnosis
           </Tab>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            FamilyHx
+            Planning
           </Tab>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            HPI
+            Intervention
           </Tab>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Immunization
-          </Tab>
-          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Lab
-          </Tab>
-          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Measurements
-          </Tab>
-          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Medications
-          </Tab>
-          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            SocialHx
-          </Tab>
-          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Vitals
-          </Tab>
-          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Intake/Output
-          </Tab>
-          <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Notes
+            Evaluation
           </Tab>
         </TabList>
         <TabPanels>
@@ -125,25 +97,6 @@ function ProfilePage({ params }) {
           <TabPanel>{record && record.hpi && <HPIPreview hpi={record.hpi} id={params.id} />}</TabPanel>
           <TabPanel>
             {record && record.immunization && <ImmunizationPreview immunization={record.immunization} id={params.id} />}
-          </TabPanel>
-          <TabPanel>{record && record.lab && <LabPreview lab={record.lab} id={params.id} />}</TabPanel>
-          <TabPanel>
-            {record && record.measurement && <MeasurementPreview measurement={record.measurement} id={params.id} />}
-          </TabPanel>
-          <TabPanel>
-            {record && record.medication && <MedicationPreview medication={record.medication} id={params.id} />}
-          </TabPanel>
-          <TabPanel>
-            {record && record.socialHx && <SocialHxPreview socialHx={record.socialHx} id={params.id} />}
-          </TabPanel>
-          <TabPanel>
-            {record && record.vitalSign && <VitalSignsPreview vitalSign={record.vitalSign} id={params.id} />}
-          </TabPanel>
-          <TabPanel>
-            {record && record.intakeOutput && <IntakeOutputPreview intakeOutput={record.intakeOutput} id={params.id} />}
-          </TabPanel>
-          <TabPanel>
-            {record && record.nurseNotes && <NurseNotesPreview nurseNotes={record.nurseNotes} id={params.id} />}
           </TabPanel>
         </TabPanels>
       </Tabs>

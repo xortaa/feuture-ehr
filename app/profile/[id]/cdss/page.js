@@ -10,6 +10,7 @@ import InterventionPreview from "@/components/InterventionPreview";
 import ImmunizationPreview from "@/components/ImmunizationPreview";
 import { useRouter } from "next/navigation";
 import DiagnosisPreview from "@/components/DiagnosisPreview";
+import EvaluationPreview from "@/components/EvaluationPreview";
 
 function ProfilePage({ params }) {
   const [record, setRecord] = useState([]);
@@ -97,7 +98,7 @@ function ProfilePage({ params }) {
             {record && record.hpi && <InterventionPreview intervention={record.intervention} id={params.id} />}
           </TabPanel>
           <TabPanel>
-            {record && record.immunization && <ImmunizationPreview immunization={record.immunization} id={params.id} />}
+            {record && record.immunization && <EvaluationPreview evaluation={record.evaluation} id={params.id} />}
           </TabPanel>
         </TabPanels>
       </Tabs>

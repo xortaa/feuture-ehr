@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import AssessmentPreview from "@/components/AssessmentPreview";
-import FamilyHxPreview from "@/components/FamilyHxPreview";
+import PlanningPreview from "@/components/PlanningPreview";
 import HPIPreview from "@/components/HPIPreview";
 import ImmunizationPreview from "@/components/ImmunizationPreview";
 import { useRouter } from "next/navigation";
@@ -91,7 +91,7 @@ function ProfilePage({ params }) {
             {record && record.diagnosis && <DiagnosisPreview diagnosis={record.diagnosis} id={params.id} />}
           </TabPanel>
           <TabPanel>
-            {record && record.familyHx && <FamilyHxPreview familyHx={record.familyHx} id={params.id} />}
+            {record && record.planning && <PlanningPreview planning={record.planning} id={params.id} />}
           </TabPanel>
           <TabPanel>{record && record.hpi && <HPIPreview hpi={record.hpi} id={params.id} />}</TabPanel>
           <TabPanel>

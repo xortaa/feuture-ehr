@@ -13,7 +13,6 @@ import {
   Select,
   FormControl,
   FormLabel,
-  Heading,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import { useForm } from "react-hook-form";
@@ -22,12 +21,19 @@ import axios from "axios";
 const AssessmentModal = ({ assessment, setAssessments }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      method: assessment.method,
+      location: assessment.location,
+      damageCaused: assessment.damageCaused,
+      typeOfInjury: assessment.typeOfInjury,
+      locationOfInjury: assessment.locationOfInjury,
+      sizeOfInjury: assessment.sizeOfInjury,
+      degreeOfInjury: assessment.degreeOfInjury,
+      colorOfInjury: assessment.colorOfInjury,
+      drainage: assessment.drainage,
+    },
+  });
 
   const onSubmit = (data) => {
     onClose();
@@ -51,56 +57,31 @@ const AssessmentModal = ({ assessment, setAssessments }) => {
               <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
                 <FormControl>
                   <FormLabel>Method/Cause of Injury</FormLabel>
-                  <Input size="sm" variant="outline" {...register("method")} defaultValue={assessment.method} />
+                  <Input size="sm" variant="outline" {...register("method")} />
                 </FormControl>
                 <FormControl>
                   <FormLabel>Location</FormLabel>
-                  <Input size="sm" variant="outline" {...register("location")} defaultValue={assessment.location} />
+                  <Input size="sm" variant="outline" {...register("location")} />
                 </FormControl>
                 <FormControl>
                   <FormLabel>Damage Caused</FormLabel>
-                  <Input
-                    size="sm"
-                    variant="outline"
-                    {...register("damageCaused")}
-                    defaultValue={assessment.damageCaused}
-                  />
+                  <Input size="sm" variant="outline" {...register("damageCaused")} />
                 </FormControl>
                 <FormControl>
                   <FormLabel>Type of Injury</FormLabel>
-                  <Input
-                    size="sm"
-                    variant="outline"
-                    {...register("typeOfInjury")}
-                    defaultValue={assessment.typeOfInjury}
-                  />
+                  <Input size="sm" variant="outline" {...register("typeOfInjury")} />
                 </FormControl>
                 <FormControl>
                   <FormLabel>Location of Injury</FormLabel>
-                  <Input
-                    size="sm"
-                    variant="outline"
-                    {...register("locationOfInjury")}
-                    defaultValue={assessment.locationOfInjury}
-                  />
+                  <Input size="sm" variant="outline" {...register("locationOfInjury")} />
                 </FormControl>
                 <FormControl>
                   <FormLabel>Size of Injury</FormLabel>
-                  <Input
-                    size="sm"
-                    variant="outline"
-                    {...register("sizeOfInjury")}
-                    defaultValue={assessment.sizeOfInjury}
-                  />
+                  <Input size="sm" variant="outline" {...register("sizeOfInjury")} />
                 </FormControl>
                 <FormControl>
                   <FormLabel>Degree of Injury</FormLabel>
-                  <Select
-                    size="sm"
-                    variant="outline"
-                    {...register("degreeOfInjury")}
-                    defaultValue={assessment.degreeOfInjury}
-                  >
+                  <Select size="sm" variant="outline" {...register("degreeOfInjury")}>
                     <option value="Mild">Mild</option>
                     <option value="Moderate">Moderate</option>
                     <option value="Severe">Severe</option>
@@ -108,16 +89,11 @@ const AssessmentModal = ({ assessment, setAssessments }) => {
                 </FormControl>
                 <FormControl>
                   <FormLabel>Color of Injury</FormLabel>
-                  <Input
-                    size="sm"
-                    variant="outline"
-                    {...register("colorOfInjury")}
-                    defaultValue={assessment.colorOfInjury}
-                  />
+                  <Input size="sm" variant="outline" {...register("colorOfInjury")} />
                 </FormControl>
                 <FormControl>
                   <FormLabel>Drainage</FormLabel>
-                  <Select size="sm" variant="outline" {...register("drainage")} defaultValue={assessment.drainage}>
+                  <Select size="sm" variant="outline" {...register("drainage")}>
                     <option value="None">None</option>
                     <option value="Serous">Serous</option>
                     <option value="Purulent">Purulent</option>

@@ -1,36 +1,11 @@
 "use client";
 
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-  Box,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Button,
-} from "@chakra-ui/react";
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import { useRouter } from "next/navigation";
+import { Table, Thead, Tbody, Tr, Th, Td, TableContainer, Box } from "@chakra-ui/react";
+import { DeleteIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import AssessmentModal from "./AssessmentModal";
-import { useState } from "react";
 
 function AssessmentTable({ setAssessments, assessments, onDelete }) {
-  const router = useRouter();
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedAssessment, setSelectedAssessment] = useState({});
-
   const handleDelete = (id) => {
     axios.delete(`/api/assessment/${id}`).then((res) => {
       console.log(res);
@@ -39,12 +14,6 @@ function AssessmentTable({ setAssessments, assessments, onDelete }) {
       }
     });
   };
-
-  const handleEditClick = (assessment) => {
-    onOpen();
-    setSelectedAssessment(assessment);
-  };
-
   return (
     <Box boxShadow="base" _hover={{ boxShadow: "lg" }} borderRadius="md" p={2} bgColor="white">
       <TableContainer>
@@ -60,6 +29,7 @@ function AssessmentTable({ setAssessments, assessments, onDelete }) {
               <Th>Degree of Injury</Th>
               <Th>Color of Injury</Th>
               <Th>Drainage</Th>
+              <Th>Actions</Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -76,7 +46,7 @@ function AssessmentTable({ setAssessments, assessments, onDelete }) {
                   <Td>{assessment.colorOfInjury}</Td>
                   <Td>{assessment.drainage}</Td>
                   <Td>
-                    <AssessmentModal assessment={assessment} setAssessments={setAssessments}/>
+                    <AssessmentModal assessment={assessment} setAssessments={setAssessments} />
                     <DeleteIcon onClick={() => handleDelete(assessment._id)} boxSize={5} mx={1} cursor="pointer" />
                   </Td>
                 </Tr>

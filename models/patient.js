@@ -97,7 +97,7 @@ const PatientSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "NurseNotes",
   },
-  assesment: {
+  assessment: {
     type: [Schema.Types.ObjectId],
     ref: "Assessment",
   },

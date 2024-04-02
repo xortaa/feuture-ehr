@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-const AssesmentSchema = new Schema({
+const AssessmentSchema = new Schema({
   method: {
     type: String,
   },
@@ -21,20 +21,20 @@ const AssesmentSchema = new Schema({
   },
   degreeOfInjury: {
     type: String,
-    enum: ["mild", "moderate", "severe"],
+    enum: ["Mild", "Moderate", "Severe"],
   },
   colorOfInjury: {
     type: String,
   },
   drainage: {
     type: String,
-    enum: ["none", "serous", "purulent"],
+    enum: ["None", "Serous", "Purulent"],
   },
 });
 
-const Assesment = models.Assesment || model("Assesment", AssesmentSchema);
+const Assessment = models.Assessment || model("Assessment", AssessmentSchema);
 
-export default Assesment;
+export default Assessment;
 
 // Sure, here's a text representation of the form structure you can use for the assessments tab:
 

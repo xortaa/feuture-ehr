@@ -32,7 +32,7 @@ const connectToDatabase = async () => {
     require("@/models/vitalSign");
     require("@/models/intakeOutput");
     require("@/models/nurseNotes");
-    require("@/models/assesment");
+    require("@/models/assessment");
     require("@/models/diagnosis");
     require("@/models/planning");
     require("@/models/intervention");

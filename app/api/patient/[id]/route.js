@@ -18,6 +18,11 @@ export const GET = async (NextRequest, { params }) => {
       .populate("measurement")
       .populate("intakeOutput")
       .populate("nurseNotes")
+      .populate("assessment")
+      .populate("diagnosis")
+      .populate("planning")
+      .populate("intervention")
+      .populate("evaluation")
       .exec();
     if (!patient) {
       return NextResponse.json("Patient not found", { status: 404 });

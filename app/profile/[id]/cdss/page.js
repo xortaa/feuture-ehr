@@ -6,6 +6,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel, Button, Flex, Stack } from "@c
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import AssessmentPreview from "@/components/AssessmentPreview";
 import AllergenPreview from "@/components/AllergenPreview";
 import FamilyHxPreview from "@/components/FamilyHxPreview";
 import HPIPreview from "@/components/HPIPreview";
@@ -69,7 +70,7 @@ function ProfilePage({ params }) {
       <Tabs size="sm" colorScheme="green" isFitted variant="unstyled">
         <TabList>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Assesment
+            Assessment
           </Tab>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
             Diagnosis
@@ -86,11 +87,9 @@ function ProfilePage({ params }) {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Stack spacing={3}>{loading ? <p>Loading...</p> : <DemographicTable record={record} />}</Stack>
+            {record && record.assessment && <AssessmentPreview assessment={record.assessment} id={params.id} />}
           </TabPanel>
-          <TabPanel>
-            {record && record.allergen && <AllergenPreview allergen={record.allergen} id={params.id} />}
-          </TabPanel>
+          <TabPanel></TabPanel>
           <TabPanel>
             {record && record.familyHx && <FamilyHxPreview familyHx={record.familyHx} id={params.id} />}
           </TabPanel>

@@ -1,9 +1,6 @@
-:root {
-  --green:#009900;
-  --dark-green: #006600;;
-  --yellow:#ffc20e;
-  --grey: #818181;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;

@@ -57,16 +57,20 @@ function ProfileWithPage({ params }) {
 
   return (
     <div style={{ margin: "30px 60px" }} className="bg">
-      <Flex mb={3} gap={3}>
-        <Button colorScheme="green" size="sm" variant="outline" onClick={handleBackToPatient}>
-          Back To Patient
-        </Button>
-        <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectCDSS}>
-          CDSS
-        </Button>
-        <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectWith}>
-          Patient with Diabetes Mellitus type II
-        </Button>
+      <Flex justifyContent={"space-between"}>
+        <Flex mb={3} gap={3}>
+          <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectCDSS}>
+            CDSS
+          </Button>
+          <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectWith}>
+            Patient with Diabetes Mellitus type II
+          </Button>
+        </Flex>
+        <Flex mb={3} justifyContent={"flex-end"} gap={3}>
+          <Button colorScheme="green" size="sm" variant="outline" onClick={handleBackToPatient}>
+            Back To Patient
+          </Button>
+        </Flex>
       </Flex>
       <Tabs size="sm" colorScheme="green" isFitted variant="unstyled">
         <TabList>

@@ -23,7 +23,7 @@ const CdssModal = ({ cdss, setCdsss }) => {
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      cdss: cdss.alert,
+      alert: cdss.alert,
     },
   });
 

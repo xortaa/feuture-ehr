@@ -97,6 +97,30 @@ const PatientSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "NurseNotes",
   },
+  assessment: {
+    type: [Schema.Types.ObjectId],
+    ref: "Assessment",
+  },
+  diagnosis: {
+    type: [Schema.Types.ObjectId],
+    ref: "Diagnosis",
+  },
+  planning: {
+    type: [Schema.Types.ObjectId],
+    ref: "Planning",
+  },
+  intervention: {
+    type: [Schema.Types.ObjectId],
+    ref: "Intervention",
+  },
+  evaluation: {
+    type: [Schema.Types.ObjectId],
+    ref: "Evaluation",
+  },
+  cdss: {
+    type: [Schema.Types.ObjectId],
+    ref: "Cdss",
+  },
 });
 
 const Patient = models.Patient || model("Patient", PatientSchema);

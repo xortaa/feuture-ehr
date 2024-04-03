@@ -51,30 +51,38 @@ function ProfilePage({ params }) {
     router.push(`/profile/edit/patient/${params.id}`);
   };
 
+  const handleRedirectCDSS = () => {
+    router.push(`/profile/${params.id}/cdss`);
+  };
+  const handleRedirectWith = () => {
+    router.push(`/profile/${params.id}/with`);
+  };
+
   return (
     <div style={{ margin: "30px 60px" }} className="bg">
-      <Flex mb={3} justifyContent={"flex-end"} gap={3}>
-        <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectHome}>
-          Back To Patient Records
-        </Button>
-        <Button colorScheme="yellow" size="sm" variant="outline" onClick={handleRedirectEdit}>
-          Edit Patient
-        </Button>
-        <Button colorScheme="red" size="sm" variant="outline" onClick={handleDelete}>
-          Delete Patient
-        </Button>
+      <Flex justifyContent={"space-between"}>
+        <Flex mb={3} justifyContent={"flex-end"} gap={3}>
+          <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectCDSS}>
+            CDSS
+          </Button>
+          <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectWith}>
+            Patient with Diabetes Mellitus type II
+          </Button>
+        </Flex>
+        <Flex mb={3} justifyContent={"flex-end"} gap={3}>
+          <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectHome}>
+            Back To Patient Records
+          </Button>
+          <Button colorScheme="yellow" size="sm" variant="outline" onClick={handleRedirectEdit}>
+            Edit Patient
+          </Button>
+          <Button colorScheme="red" size="sm" variant="outline" onClick={handleDelete}>
+            Delete Patient
+          </Button>
+        </Flex>
       </Flex>
-      <Tabs colorScheme="green" isFitted variant="unstyled">
-        <TabList
-          overflowX="scroll"
-          overflowY="hidden"
-          xs={{
-            scrollbarWidth: "30px",
-            "::-webkit-scrollbar": {
-              display: "none",
-            },
-          }}
-        >
+      <Tabs size="sm" colorScheme="green" isFitted variant="unstyled">
+        <TabList>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
             Profile
           </Tab>
@@ -109,7 +117,7 @@ function ProfilePage({ params }) {
             Intake/Output
           </Tab>
           <Tab borderRadius="md" _selected={{ color: "white", bg: "green.600" }}>
-            Nurse Notes
+            Notes
           </Tab>
         </TabList>
         <TabPanels>

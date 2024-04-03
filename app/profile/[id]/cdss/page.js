@@ -171,16 +171,24 @@ function ProfileCDSSPage({ params }) {
     router.push(`/profile/edit/patient/${params.id}`);
   };
 
-  const handleRedirectToPatient = () => {
-    router.push(`/profile/${params.id}`);
+  const handleRedirectCDSS = () => {
+    router.push(`/profile/${params.id}/cdss`);
+  };
+  const handleRedirectWith = () => {
+    router.push(`/profile/${params.id}/with`);
   };
 
   return (
     <div style={{ margin: "30px 60px" }} className="bg">
       <Flex justifyContent={"space-between"}>
-        <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectToPatient}>
-          Back To Patient
-        </Button>
+        <Flex mb={3} justifyContent={"flex-end"} gap={3}>
+          <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectCDSS}>
+            CDSS
+          </Button>
+          <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectWith}>
+            Patient with Diabetes Mellitus type II
+          </Button>
+        </Flex>
         <Flex mb={3} justifyContent={"flex-end"} gap={3}>
           <Button colorScheme="green" size="sm" variant="outline" onClick={handleRedirectHome}>
             Back To Patient Records

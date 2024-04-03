@@ -22,6 +22,7 @@ export const GET = async (NextRequest) => {
       .populate("planning")
       .populate("intervention")
       .populate("evaluation")
+      .populate("cdss")
       .exec();
     return NextResponse.json(patients, { status: 200 });
   } catch (error) {

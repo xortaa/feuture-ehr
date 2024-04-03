@@ -117,6 +117,10 @@ const PatientSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "Evaluation",
   },
+  cdss: {
+    type: [Schema.Types.ObjectId],
+    ref: "Cdss",
+  },
 });
 
 const Patient = models.Patient || model("Patient", PatientSchema);

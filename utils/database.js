@@ -37,6 +37,7 @@ const connectToDatabase = async () => {
     require("@/models/planning");
     require("@/models/intervention");
     require("@/models/evaluation");
+    require("@/models/cdss");
   } catch (error) {
     console.log(error);
   }

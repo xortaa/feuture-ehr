@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import DiagnosisPreview from "@/components/DiagnosisPreview";
 import EvaluationPreview from "@/components/EvaluationPreview";
 
-function ProfileCDSSPage({ params }) {
+function ProfileWithPage({ params }) {
   const [record, setRecord] = useState([]);
   const [loading, setLoading] = useState([]);
 
@@ -105,4 +105,4 @@ function ProfileCDSSPage({ params }) {
     </div>
   );
 }
-export default ProfileCDSSPage;
+export default ProfileWithPage;

@@ -23,15 +23,9 @@ const AssessmentModal = ({ assessment, setAssessments }) => {
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      method: assessment.method,
-      location: assessment.location,
-      damageCaused: assessment.damageCaused,
-      typeOfInjury: assessment.typeOfInjury,
-      locationOfInjury: assessment.locationOfInjury,
-      sizeOfInjury: assessment.sizeOfInjury,
-      degreeOfInjury: assessment.degreeOfInjury,
-      colorOfInjury: assessment.colorOfInjury,
-      drainage: assessment.drainage,
+      subjective: assessment.subjective,
+      objective: assessment.objective,
+      decidingTrigger: assessment.decidingTrigger,
     },
   });
 
@@ -56,48 +50,16 @@ const AssessmentModal = ({ assessment, setAssessments }) => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
                 <FormControl>
-                  <FormLabel>Method/Cause of Injury</FormLabel>
-                  <Input size="sm" variant="outline" {...register("method")} />
+                  <FormLabel>Subjective</FormLabel>
+                  <Input size="sm" variant="outline" {...register("subjective")} />
                 </FormControl>
                 <FormControl>
-                  <FormLabel>Location</FormLabel>
-                  <Input size="sm" variant="outline" {...register("location")} />
+                  <FormLabel>Objective</FormLabel>
+                  <Input size="sm" variant="outline" {...register("objective")} />
                 </FormControl>
                 <FormControl>
-                  <FormLabel>Damage Caused</FormLabel>
-                  <Input size="sm" variant="outline" {...register("damageCaused")} />
-                </FormControl>
-                <FormControl>
-                  <FormLabel>Type of Injury</FormLabel>
-                  <Input size="sm" variant="outline" {...register("typeOfInjury")} />
-                </FormControl>
-                <FormControl>
-                  <FormLabel>Location of Injury</FormLabel>
-                  <Input size="sm" variant="outline" {...register("locationOfInjury")} />
-                </FormControl>
-                <FormControl>
-                  <FormLabel>Size of Injury</FormLabel>
-                  <Input size="sm" variant="outline" {...register("sizeOfInjury")} />
-                </FormControl>
-                <FormControl>
-                  <FormLabel>Degree of Injury</FormLabel>
-                  <Select size="sm" variant="outline" {...register("degreeOfInjury")}>
-                    <option value="Mild">Mild</option>
-                    <option value="Moderate">Moderate</option>
-                    <option value="Severe">Severe</option>
-                  </Select>
-                </FormControl>
-                <FormControl>
-                  <FormLabel>Color of Injury</FormLabel>
-                  <Input size="sm" variant="outline" {...register("colorOfInjury")} />
-                </FormControl>
-                <FormControl>
-                  <FormLabel>Drainage</FormLabel>
-                  <Select size="sm" variant="outline" {...register("drainage")}>
-                    <option value="None">None</option>
-                    <option value="Serous">Serous</option>
-                    <option value="Purulent">Purulent</option>
-                  </Select>
+                  <FormLabel>Deciding Triggers</FormLabel>
+                  <Input size="sm" variant="outline" {...register("decidingTrigger")} />
                 </FormControl>
               </Stack>
               <ModalFooter>

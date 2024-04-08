@@ -20,21 +20,16 @@ function DiagnosisTable({ setDiagnoses, diagnoses, onDelete }) {
         <Table variant="simple" size="sm">
           <Thead>
             <Tr>
-              <Th>Impaired Skin Integrity</Th>
-              <Th>Pain</Th>
-              <Th>Risk for Infection</Th>
-              <Th>Other Diagnoses</Th>
-              <Th>Actions</Th>
+              <Th>Nursing Diagnosis</Th>
+              <Th>Deciding Triggers</Th>
             </Tr>
           </Thead>
           <Tbody>
             {diagnoses &&
               diagnoses.map((diagnosis, index) => (
                 <Tr key={index}>
-                  <Td>{diagnosis.impairedSkinIntegrity}</Td>
-                  <Td>{diagnosis.pain}</Td>
-                  <Td>{diagnosis.riskForInfection}</Td>
-                  <Td>{diagnosis.otherDiagnoses}</Td>
+                  <Td>{diagnosis.nursingDiagnosis}</Td>
+                  <Td>{diagnosis.decidingTriggers}</Td>
                   <Td>
                     <DiagnosisModal diagnosis={diagnosis} setDiagnoses={setDiagnoses} />
                     <DeleteIcon onClick={() => handleDelete(diagnosis._id)} boxSize={5} mx={1} cursor="pointer" />

@@ -33,35 +33,12 @@ function DiagnosisPreview({ diagnosis, id }) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
-            <FormLabel>Impaired Skin Integrity</FormLabel>
-            <Select size="sm" variant="outline" {...register("impairedSkinIntegrity")}>
-              <option value="None">None</option>
-              <option value="Mild">Mild</option>
-              <option value="Moderate">Moderate</option>
-              <option value="Severe">Severe</option>
-            </Select>
+            <FormLabel>Nursing Diagnosis</FormLabel>
+            <Input size="sm" variant="outline" {...register("nursingDiagnosis")} />
           </FormControl>
           <FormControl>
-            <FormLabel>Pain</FormLabel>
-            <Select size="sm" variant="outline" {...register("pain")}>
-              <option value="None">None</option>
-              <option value="Mild">Mild</option>
-              <option value="Moderate">Moderate</option>
-              <option value="Severe">Severe</option>
-            </Select>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Risk for Infection</FormLabel>
-            <Select size="sm" variant="outline" {...register("riskForInfection")}>
-              <option value="None">None</option>
-              <option value="Mild">Mild</option>
-              <option value="Moderate">Moderate</option>
-              <option value="Severe">Severe</option>
-            </Select>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Other Diagnoses</FormLabel>
-            <Input size="sm" variant="outline" {...register("otherDiagnoses")} />
+            <FormLabel>Deciding Triggers</FormLabel>
+            <Input size="sm" variant="outline" {...register("decidingTriggers")} />
           </FormControl>
           <Button w={150} colorScheme="green" variant="solid" type="submit">
             Submit

@@ -1,19 +1,22 @@
 import { Schema, model, models } from "mongoose";
 
 const PlanningSchema = new Schema({
-  relievePain: {
+  shortTermGoal: {
     type: String,
   },
-  infectionPrevention: {
+  longTermGoal: {
     type: String,
   },
-  treatment: {
+  cognitiveObjectives: {
     type: String,
   },
-  cure: {
+  psychomotorObjectives: {
     type: String,
   },
-  promote: {
+  affectiveObjectives: {
+    type: String,
+  },
+  decidingTriggers: { 
     type: String,
   },
 });

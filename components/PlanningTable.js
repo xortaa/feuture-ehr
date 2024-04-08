@@ -20,23 +20,24 @@ function PlanningTable({ setPlannings, plannings, onDelete }) {
         <Table variant="simple" size="sm">
           <Thead>
             <Tr>
-              <Th>Relieve Pain</Th>
-              <Th>Infection Prevention</Th>
-              <Th>Treatment</Th>
-              <Th>Cure</Th>
-              <Th>Promote</Th>
-              <Th>Actions</Th>
+              <Th>Short Term Goal</Th>
+              <Th>Long Term Goal</Th>
+              <Th>Cognitive Objectives</Th>
+              <Th>Psychomotor Objectives</Th>
+              <Th>Affective Objectives</Th>
+              <Th>Deciding Triggers</Th>
             </Tr>
           </Thead>
           <Tbody>
             {plannings &&
               plannings.map((planning, index) => (
                 <Tr key={index}>
-                  <Td>{planning.relievePain}</Td>
-                  <Td>{planning.infectionPrevention}</Td>
-                  <Td>{planning.treatment}</Td>
-                  <Td>{planning.cure}</Td>
-                  <Td>{planning.promote}</Td>
+                  <Td>{planning.shortTermGoal}</Td>
+                  <Td>{planning.longTermGoal}</Td>
+                  <Td>{planning.cognitiveObjectives}</Td>
+                  <Td>{planning.psychomotorObjectives}</Td>
+                  <Td>{planning.affectiveObjectives}</Td>
+                  <Td>{planning.decidingTriggers}</Td>
                   <Td>
                     <PlanningModal planning={planning} setPlannings={setPlannings} />
                     <DeleteIcon onClick={() => handleDelete(planning._id)} boxSize={5} mx={1} cursor="pointer" />

@@ -37,27 +37,30 @@ function PlanningPreview({ planning, id }) {
       <PlanningTable setPlannings={setPlannings} plannings={plannings} onDelete={handleDelete} />;
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
-          <h1 className=" font-bold text-2xl mb-5">Short term</h1>
           <FormControl>
-            <FormLabel>Relieve Pain</FormLabel>
-            <Input size="sm" variant="outline" {...register("relievePain")} />
+            <FormLabel>Short Term Goal</FormLabel>
+            <Input size="sm" variant="outline" {...register("shortTermGoal")} />
           </FormControl>
           <FormControl>
-            <FormLabel>Infection Prevention</FormLabel>
-            <Input size="sm" variant="outline" {...register("infectionPrevention")} />
+            <FormLabel>Long Term Goal</FormLabel>
+            <Input size="sm" variant="outline" {...register("longTermGoal")} />
           </FormControl>
-          <h1 className="my-5  font-bold text-2xl">Long term</h1>
-          <FormControl>
-            <FormLabel>Treatment</FormLabel>
-            <Input size="sm" variant="outline" {...register("treatment")} />
+          <h1 className=" font-bold text-2xl mb-5">Objectives</h1>
+          <FormControl className="ml-9">
+            <FormLabel>Cognitive Objectives</FormLabel>
+            <Input size="sm" variant="outline" {...register("cognitiveObjectives")} />
+          </FormControl>
+          <FormControl className="ml-9">
+            <FormLabel>Psychomotor Objectives</FormLabel>
+            <Input size="sm" variant="outline" {...register("psychomotorObjectives")} />
+          </FormControl>
+          <FormControl className="ml-9">
+            <FormLabel>Affective Objectives</FormLabel>
+            <Input size="sm" variant="outline" {...register("affectiveObjectives")} />
           </FormControl>
           <FormControl>
-            <FormLabel>Cure</FormLabel>
-            <Input size="sm" variant="outline" {...register("cure")} />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Promote</FormLabel>
-            <Input size="sm" variant="outline" {...register("promote")} />
+            <FormLabel>Deciding Triggers</FormLabel>
+            <Input size="sm" variant="outline" {...register("decidingTriggers")} />
           </FormControl>
           <Button w={150} colorScheme="green" variant="solid" type="submit">
             Submit

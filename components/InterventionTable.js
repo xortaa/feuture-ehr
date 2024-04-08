@@ -20,7 +20,10 @@ function InterventionTable({ setInterventions, interventions, onDelete }) {
         <Table variant="simple" size="sm">
           <Thead>
             <Tr>
-              <Th>Intervention</Th>
+              <Th>Dependent Facilitative</Th>
+              <Th>Independent Supplemental</Th>
+              <Th>Collaborative Developmental</Th>
+              <Th>Deciding Triggers</Th>
               <Th>Actions</Th>
             </Tr>
           </Thead>
@@ -28,7 +31,10 @@ function InterventionTable({ setInterventions, interventions, onDelete }) {
             {interventions &&
               interventions.map((intervention, index) => (
                 <Tr key={index}>
-                  <Td>{intervention.intervention}</Td>
+                  <Td>{intervention.dependentFacilitative}</Td>
+                  <Td>{intervention.independentSupplemental}</Td>
+                  <Td>{intervention.collaborativeDevelopmental}</Td>
+                  <Td>{intervention.decidingTriggers}</Td>
                   <Td>
                     <InterventionModal intervention={intervention} setInterventions={setInterventions} />
                     <DeleteIcon onClick={() => handleDelete(intervention._id)} boxSize={5} mx={1} cursor="pointer" />

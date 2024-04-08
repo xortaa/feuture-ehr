@@ -38,8 +38,20 @@ function InterventionPreview({ intervention, id }) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
-            <FormLabel>Intervention</FormLabel>
-            <Input size="sm" variant="outline" {...register("intervention")} />
+            <FormLabel>Dependent Facilitative</FormLabel>
+            <Input size="sm" variant="outline" {...register("dependentFacilitative")} />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Independent Supplemental</FormLabel>
+            <Input size="sm" variant="outline" {...register("independentSupplemental")} />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Collaborative Developmental</FormLabel>
+            <Input size="sm" variant="outline" {...register("collaborativeDevelopmental")} />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Deciding Triggers</FormLabel>
+            <Input size="sm" variant="outline" {...register("decidingTriggers")} />
           </FormControl>
           <Button w={150} colorScheme="green" variant="solid" type="submit">
             Submit

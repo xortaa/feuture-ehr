@@ -1,13 +1,13 @@
 import { Schema, model, models } from "mongoose";
 
 const EvaluationSchema = new Schema({
-  followUpDate: {
-    type: Date,
+  met: {
+    type: String,
   },
-  followUpTreatment: {
-    type: Boolean,
+  unmet: {
+    type: String,
   },
-  findings: {
+  decidingTriggers: {
     type: String,
   },
 });
@@ -15,3 +15,8 @@ const EvaluationSchema = new Schema({
 const Evaluation = models.Evaluation || model("Evaluation", EvaluationSchema);
 
 export default Evaluation;
+
+// EVALUATION
+// • MET 
+// • UNMET
+// • Deciding Triggers

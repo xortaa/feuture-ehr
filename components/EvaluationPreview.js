@@ -38,19 +38,16 @@ function EvaluationPreview({ evaluation, id }) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3} p={4} boxShadow="md" bg="white" borderRadius="md">
           <FormControl>
-            <FormLabel>Findings</FormLabel>
-            <Input size="sm" variant="outline" {...register("findings")} />
+            <FormLabel>MET</FormLabel>
+            <Input size="sm" variant="outline" {...register("met")} />
           </FormControl>
           <FormControl>
-            <FormLabel>Followup Treatment</FormLabel>
-            <Select size="sm" variant="outline" {...register("followUpTreatment")}>
-              <option value={true}>Yes</option>
-              <option value={false}>No</option>
-            </Select>
+            <FormLabel>UNMET</FormLabel>
+            <Input size="sm" variant="outline" {...register("unmet")} />
           </FormControl>
           <FormControl>
-            <FormLabel>Followup Date</FormLabel>
-            <Input size="sm" variant="outline" type="date" {...register("followUpDate")} />
+            <FormLabel>Deciding Triggers</FormLabel>
+            <Input size="sm" variant="outline" {...register("decidingTriggers")} />
           </FormControl>
           <Button w={150} colorScheme="green" variant="solid" type="submit">
             Submit

@@ -20,18 +20,19 @@ function EvaluationTable({ setEvaluations, evaluations, onDelete }) {
         <Table variant="simple" size="sm">
           <Thead>
             <Tr>
-              <Th>Findings</Th>
-              <Th>Followup Treatment</Th>
-              <Th>Followup Date</Th>
+              <Th>MET</Th>
+              <Th>UNMET</Th>
+              <Th>Deciding Triggers</Th>
+              <Th>Actions</Th>
             </Tr>
           </Thead>
           <Tbody>
             {evaluations &&
               evaluations.map((evaluation, index) => (
                 <Tr key={index}>
-                  <Td>{evaluation.findings}</Td>
-                  <Td>{evaluation.followUpTreatment ? "Yes" : "No"}</Td>
-                  <Td>{evaluation.followUpDate.toString().split("T")[0]}</Td>
+                  <Td>{evaluation.met}</Td>
+                  <Td>{evaluation.unmet}</Td>
+                  <Td>{evaluation.decidingTriggers}</Td>
                   <Td>
                     <EvaluationModal evaluation={evaluation} setEvaluations={setEvaluations} />
                     <DeleteIcon onClick={() => handleDelete(evaluation._id)} boxSize={5} mx={1} cursor="pointer" />
